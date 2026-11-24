@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Rent Finder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Campus Rent Finder</h1>
+      <p class="tagline">Midwest rental listings scored against what you need, with honest ranges instead of false precision.</p>
+    </div>
+  </header>
+
+  <div class="data-notice" role="note">
+    <div class="wrap">
+      <strong>These listings are from {{ data_years.replace('-', ' and ') }}.</strong>
+      Every rent shown is a historical asking price, not what the unit costs today. Use the numbers to compare listings with each other, not to budget for this year.
+    </div>
+  </div>
+
+  <main class="wrap layout">
+    <aside class="sidebar">
+      <form id="search-form" class="panel" novalidate>
+        <h2>What you are looking for</h2>
+
+        <fieldset>
+          <legend>Rent</legend>
+          <label>Monthly budget
+            <input type="number" name="budget" min="0" step="25" placeholder="e.g. 1400" inputmode="numeric">
+          </label>
+          <label>Hard maximum rent
+            <input type="number" name="max_rent" min="0" step="25" placeholder="No cap" inputmode="numeric">
+            <span class="hint">Listings above this are removed. Listings between your budget and this cap stay in but score lower.</span>
+          </label>
+          <label>Budget per person
+            <input type="number" name="per_person_budget" min="0" step="25" placeholder="Optional" inputmode="numeric">
+            <span class="hint">Compared with rent divided by bedrooms, for shared places.</span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Space</legend>
+          <div class="row">
+            <label>Bedrooms wanted
+              <select name="bedrooms">
+                <option value="">Any</option>
+                <option value="0">Studio</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+              </select>
+            </label>
+            <label>Bathrooms wanted
+              <select name="bathrooms">
+                <option value="">Any</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <label>Min bedrooms
+              <input type="number" name="min_bedrooms" min="0" max="10" step="1" placeholder="Any">
+            </label>
+            <label>Max bedrooms
+              <input type="number" name="max_bedrooms" min="0" max="10" step="1" placeholder="Any">
+            </label>
+          </div>
+          <div class="row">
+            <label>Min bathrooms
+              <input type="number" name="min_bathrooms" min="0" max="10" step="0.5" placeholder="Any">
+            </label>
+            <label>Min square feet
+              <input type="number" name="min_square_feet" min="0" step="50" placeholder="Any">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Location</legend>
+          <div class="row">
+            <label>State
+              <select name="state" id="state-select">
+                <option value="">All Midwest</option>
+              </select>
+            </label>
+            <label>City
+              <input type="text" name="city" placeholder="Any" autocomplete="off">
+            </label>
+          </div>
+          <label>Distance from campus (Lisle, IL)
+            <select name="max_distance">
+              <option value="">Any distance</option>
+              <option value="3">Within about 3 miles</option>
+              <option value="7">Within about 7 miles</option>
+              <option value="15">Within about 15 miles</option>
+              <option value="30">Within about 30 miles</option>
+              <option value="60">Within about 60 miles</option>
+            </select>
+            <span class="hint">Listing locations mark areas roughly a mile and a half across, not buildings, so distance is a coarse filter.</span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pets</legend>
+          <label>Pets you have
+            <select name="pets">
+              <option value="">No pets</option>
+              <option value="cats">Cats</option>
+              <option value="dogs">Dogs</option>
+              <option value="cats,dogs">Cats and dogs</option>
+            </select>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="confirmed_only" value="true">
+            Only show listings that state they allow pets
+          </label>
+          <span class="hint">About half of the listings do not mention pets. By default those stay in the results, marked as not listed, below confirmed matches. Listings that say no pets are always removed when you have pets.</span>
+        </fieldset>
+
+        <fieldset>
+          <legend>Amenities you want</legend>
+          <div id="amenity-options" class="amenity-grid"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>What matters most</legend>
+          <p class="hint">Drag to reorder, or use the arrow buttons. The top item gets the most weight in the match score.</p>
+          <ol id="priority-list" class="priority-list"></ol>
+        </fieldset>
+
+        <fieldset>
+          <legend>Results</legend>
+          <label class="check">
+            <input type="checkbox" name="hide_flagged" value="true">
+            Hide listings with data quality flags
+          </label>
+          <label>Show up to
+            <select name="limit">
+              <option value="25">25 listings</option>
+              <option value="50" selected>50 listings</option>
+              <option value="100">100 listings</option>
+              <option value="200">200 listings</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="primary">Find listings</button>
+          <button type="reset" class="secondary" id="reset-button">Clear</button>
+        </div>
+      </form>
+
+      <section class="panel" id="drivers-panel" aria-labelledby="drivers-title">
+        <h2 id="drivers-title">What drives rent</h2>
+        <p class="hint">How much the model's error grows when each feature is scrambled, across about 12,000 Midwest listings from 2018 and 2019. Longer bars mean the feature carries more information about rent.</p>
+        <div id="drivers-chart" class="drivers-chart"><p class="hint">Loading…</p></div>
+        <details class="drivers-details">
+          <summary>Dollar effects from the linear model</summary>
+          <ul id="drivers-effects" class="effects-list"></ul>
+          <p class="hint">These are associations in old listings, not causes. A negative amenity effect usually means cheaper complexes tend to advertise that amenity.</p>
+        </details>
+      </section>
+    </aside>
+
+    <section class="results" aria-live="polite">
+      <div class="panel explainer">
+        <h2>How to read a listing</h2>
+        <dl class="legend-list">
+          <div><dt><span class="badge value-below">Below range</span></dt><dd>Asking rent is under the estimated fair rent range.</dd></div>
+          <div><dt><span class="badge value-within">Within range</span></dt><dd>Asking rent is inside the range. Most listings land here.</dd></div>
+          <div><dt><span class="badge value-above">Above range</span></dt><dd>Asking rent is over the range, not merely over the middle.</dd></div>
+          <div><dt><span class="chip unknown">Not listed</span></dt><dd>The listing does not say. That is unknown, not a no.</dd></div>
+          <div><dt><span class="chip no">No pets allowed</span></dt><dd>The listing explicitly says no.</dd></div>
+        </dl>
+        <p class="hint">The fair rent range is an 80% range. Similar listings fell inside it about 8 times in 10 when we tested on listings the model had not seen.</p>
+      </div>
+      <div id="results-summary" class="results-summary"></div>
+      <div id="results-list" class="results-list"></div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p>Data: Apartment for Rent Classified (UCI Machine Learning Repository, dataset 555), listings from 2018 and 2019. Estimates are statistical ranges, not appraisals.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

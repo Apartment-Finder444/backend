@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+flask
+pytest
+joblib
+matplotlib
+nbformat
+nbclient
+ipykernel
+py7zr

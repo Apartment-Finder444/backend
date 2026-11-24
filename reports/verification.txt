@@ -1,0 +1,18 @@
+PASS: Raw dataset has exactly 100,000 rows (100,000 rows)
+PASS: Every raw row is kept or rejected (98,288 kept + 1,712 rejected = 100,000)
+PASS: No duplicate IDs remain
+PASS: Prices are positive and monthly (price types: {'Monthly': 98288})
+PASS: Bedrooms and bathrooms are within sane bounds
+PASS: Coordinates are inside US bounds (contiguous, Alaska, Hawaii) or blank, and never zero (0 rows outside)
+PASS: No string 'null' survives
+PASS: Pets column contains only expected values (observed: ['Cats', 'Cats,Dogs', 'Cats,Dogs,None', 'Dogs', 'none_allowed'])
+PASS: Numeric and flag column types are correct
+PASS: Slim file row count matches full file (98,288 slim / 98,288 full)
+PASS: Slim values match full file on random sample
+PASS: Flag counts are reported and at least one flag is present ({'flag_bedroom_conflict': 2664, 'flag_placeholder_coords': 220, 'flag_coord_mismatch': 7, 'flag_suspect_price': 52, 'flag_suspect_size': 55})
+Flag counts:
+  flag_bedroom_conflict: 2,664
+  flag_placeholder_coords: 220
+  flag_coord_mismatch: 7
+  flag_suspect_price: 52
+  flag_suspect_size: 55

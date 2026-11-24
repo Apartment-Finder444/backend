@@ -1,0 +1,10 @@
+data/raw/
+data/clean/
+venv/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+kaggle.json
+.kaggle/
+models/*.joblib
