@@ -336,6 +336,7 @@
           el("div", { className: "section-label", text: "Asking rent (2018–19)" }),
           el("div", { className: "amount", text: money(listing.price) }),
           el("div", { className: "per", text: perBedroom !== null ? money(perBedroom) + " per bedroom" : "" }),
+          el("div", { className: "per", text: listing.price_per_sqft !== null ? "$" + listing.price_per_sqft.toFixed(2) + " per sq ft" : "" }),
         ]),
       ]),
       el("div", { className: "card-grid" }, [fairRentSection(listing), scoreSection(listing)]),
@@ -452,6 +453,40 @@
     return applied;
   }
 
+  async function estimateRent(event) {
+    event.preventDefault();
+    const target = document.getElementById("estimate-result");
+    const params = new URLSearchParams();
+    for (const [key, value] of new FormData(event.target).entries()) {
+      if (String(value).trim() !== "") {
+        params.set(key, String(value).trim());
+      }
+    }
+    target.replaceChildren(el("p", { className: "hint", text: "Estimating…" }));
+    try {
+      const response = await fetch("/api/estimate?" + params.toString());
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error || "Estimate failed");
+      }
+      const label = VALUE_LABELS[payload.value_label] || VALUE_LABELS.unknown;
+      const children = [
+        el("div", { className: "section-label", text: "Fair rent (" + percent(payload.interval_coverage) + " range)" }),
+        el("div", { className: "fair-rent-line" }, [
+          el("span", { className: "range", text: money(payload.fair_rent_low) + " – " + money(payload.fair_rent_high) }),
+          el("span", { className: "hint", text: "Middle of range about " + money(payload.fair_rent) + ". " + payload.note }),
+        ]),
+      ];
+      if (payload.price !== null) {
+        children.push(rangeGraphic(payload));
+        children.push(el("span", { className: "badge " + label.className }, [el("span", { "aria-hidden": "true", text: label.icon }), label.text]));
+      }
+      target.replaceChildren(...children);
+    } catch (error) {
+      target.replaceChildren(el("p", { className: "error", text: error.message }));
+    }
+  }
+
   async function loadOptions() {
     try {
       const response = await fetch("/api/options");
@@ -460,6 +495,8 @@
       renderPriorities();
       renderAmenities(payload.amenities);
       renderStates(payload.states);
+      const estimateState = document.getElementById("estimate-state");
+      payload.states.forEach((state) => estimateState.appendChild(el("option", { value: state, text: state, selected: state === "IL" })));
       if (applyQuery(new URLSearchParams(window.location.search))) {
         search();
       }
@@ -469,6 +506,7 @@
   }
 
   form.addEventListener("submit", search);
+  document.getElementById("estimate-form").addEventListener("submit", estimateRent);
   form.addEventListener("reset", () => {
     window.setTimeout(() => {
       resultsSummary.textContent = "";

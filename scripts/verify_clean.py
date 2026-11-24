@@ -24,6 +24,11 @@ SLIM_COLUMNS = [
     "latitude", "longitude", "pets_allowed", "amenities", "has_photo", "source", *FLAG_COLUMNS,
 ]
 PETS_VALUES = {"Cats", "Dogs", "Cats,Dogs", "Cats,Dogs,None", "none_allowed"}
+ALLOWED_REASONS = {
+    "exact_duplicate", "repost_duplicate", "ambiguous_price_period", "missing_price",
+    "body_price_contradiction", "implausible_price",
+}
+UNIT_COLUMNS = ["price", "bedrooms", "bathrooms", "square_feet", "latitude", "longitude"]
 US_BOUNDS = [(24.3, 49.4, -125.0, -66.5), (51.0, 72.0, -180.0, -129.0), (18.8, 22.3, -160.5, -154.7)]
 
 
@@ -53,6 +58,12 @@ def main():
         f"{len(cleaned):,} kept + {len(rejected):,} rejected = {len(cleaned) + len(rejected):,}",
     )
     check("No duplicate IDs remain", not cleaned["id"].duplicated().any())
+    unit_complete = cleaned[UNIT_COLUMNS].notna().all(axis=1)
+    reposts = int((unit_complete & (cleaned.duplicated(UNIT_COLUMNS + ["title"]) | cleaned.duplicated(UNIT_COLUMNS + ["body"]))).sum())
+    check("No reposted listings of the same unit remain", reposts == 0, f"{reposts:,} found")
+    reasons = set(rejected["reject_reason"].dropna().unique())
+    check("Every rejected row has an allowed reason", reasons.issubset(ALLOWED_REASONS) and rejected["reject_reason"].notna().all(), str(rejected["reject_reason"].value_counts().to_dict()))
+    check("Rents are between $200 and $20,000", cleaned["price"].between(200, 20_000).all(), f"min {cleaned['price'].min():,.0f}, max {cleaned['price'].max():,.0f}")
     check(
         "Prices are positive and monthly",
         cleaned["price"].gt(0).all() and cleaned["price_type"].astype(str).str.casefold().eq("monthly").all(),

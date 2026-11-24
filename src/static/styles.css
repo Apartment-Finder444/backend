@@ -350,6 +350,10 @@ button.secondary {
   border: 1px solid var(--border);
 }
 
+.estimate-result {
+  margin-top: 12px;
+}
+
 .drivers-chart {
   margin-top: 10px;
 }

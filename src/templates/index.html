@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Campus Rent Finder</title>
+  <title>{{ app_name }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <h1>Campus Rent Finder</h1>
+      <h1>{{ app_name }}</h1>
       <p class="tagline">Midwest rental listings scored against what you need, with honest ranges instead of false precision.</p>
     </div>
   </header>
@@ -103,7 +103,7 @@
               <option value="30">Within about 30 miles</option>
               <option value="60">Within about 60 miles</option>
             </select>
-            <span class="hint">Listing locations mark areas roughly a mile and a half across, not buildings, so distance is a coarse filter.</span>
+            <span class="hint">Listing locations mark areas about 2 miles across, not buildings, so distance is a coarse filter.</span>
           </label>
         </fieldset>
 
@@ -155,6 +155,51 @@
           <button type="submit" class="primary">Find listings</button>
           <button type="reset" class="secondary" id="reset-button">Clear</button>
         </div>
+      </form>
+
+      <form id="estimate-form" class="panel" novalidate aria-labelledby="estimate-title">
+        <h2 id="estimate-title">Is this rent fair?</h2>
+        <p class="hint">Describe any unit, including one you found elsewhere, and the saved model gives its fair rent range by 2018&ndash;2019 Midwest standards.</p>
+        <div class="row">
+          <label>Bedrooms
+            <input type="number" name="bedrooms" min="0" max="10" step="1" value="1" required>
+          </label>
+          <label>Bathrooms
+            <input type="number" name="bathrooms" min="0" max="10" step="0.5" value="1" required>
+          </label>
+        </div>
+        <div class="row">
+          <label>Square feet
+            <input type="number" name="square_feet" min="100" step="10" value="750" required>
+          </label>
+          <label>Asking rent
+            <input type="number" name="price" min="0" step="25" placeholder="Optional">
+          </label>
+        </div>
+        <div class="row">
+          <label>State
+            <select name="state" id="estimate-state"></select>
+          </label>
+          <label>City
+            <input type="text" name="city" value="Lisle" autocomplete="off">
+          </label>
+        </div>
+        <label>Miles from campus
+          <input type="number" name="distance" min="0" step="1" placeholder="Optional">
+        </label>
+        <label>Pet policy
+          <select name="pets">
+            <option value="">Not stated</option>
+            <option value="cats,dogs">Cats and dogs allowed</option>
+            <option value="cats">Cats allowed</option>
+            <option value="dogs">Dogs allowed</option>
+            <option value="none">No pets</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button type="submit" class="primary">Estimate fair rent</button>
+        </div>
+        <div id="estimate-result" class="estimate-result" aria-live="polite"></div>
       </form>
 
       <section class="panel" id="drivers-panel" aria-labelledby="drivers-title">

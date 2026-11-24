@@ -5,52 +5,52 @@
   "interval": {
     "coverage": 0.8,
     "edges": [
-      6.657741754896975,
-      6.815617249288956,
-      6.991348553865079,
-      7.190440043980063
+      6.661283362863661,
+      6.817923887439246,
+      6.993027909954484,
+      7.195238454626971
     ],
     "limits": [
       [
-        -0.2247864987499353,
-        0.16728652977718067
+        -0.21818043050398073,
+        0.18421094110046085
       ],
       [
-        -0.2199336811183811,
-        0.2045608679302181
+        -0.23377545041732015,
+        0.18704633807661628
       ],
       [
-        -0.24124404667204458,
-        0.23619996116099684
+        -0.24125691253264167,
+        0.26302527289325783
       ],
       [
-        -0.2568198624078421,
-        0.23942031837482317
+        -0.24484854632928316,
+        0.23550093505496072
       ],
       [
-        -0.22011812297276276,
-        0.2985070469823355
+        -0.23700082516435783,
+        0.3077966398951714
       ]
     ]
   },
   "listing_years": "2018-2019",
-  "rows": 12166,
+  "rows": 11977,
   "skew": {
     "price": {
-      "raw_skew": 3.7606762279396984,
-      "log_skew": 0.5591971517908889,
+      "raw_skew": 3.7635846630039316,
+      "log_skew": 0.5537210707056677,
       "use_log": true,
       "transform": "log"
     },
     "square_feet": {
-      "raw_skew": 5.284555157963471,
-      "log_skew": 0.22914545758318036,
+      "raw_skew": 5.297287865584893,
+      "log_skew": 0.22759216697250342,
       "use_log": true,
       "transform": "log"
     },
     "distance_from_campus_miles": {
-      "raw_skew": 0.6780375658740783,
-      "log_skew": -2.2247711141761592,
+      "raw_skew": 0.6731192882275177,
+      "log_skew": -2.218314813518258,
       "use_log": false,
       "transform": "log1p"
     }
@@ -58,510 +58,510 @@
   "importance": [
     {
       "feature": "Square footage",
-      "linear_dollars": 53.84748915679022,
+      "linear_dollars": 54.38061103740555,
       "linear_change": "10% more square footage",
-      "linear_permutation_dollars": 120.31437341655396,
-      "forest_permutation_dollars": 180.8375111291254,
-      "forest_share": 0.32647280418836255,
-      "forest_impurity_share": 0.36165719256888473
+      "linear_permutation_dollars": 153.0855838275301,
+      "forest_permutation_dollars": 154.1856228797113,
+      "forest_share": 0.3143536430879555,
+      "forest_impurity_share": 0.3617010897823944
     },
     {
       "feature": "Distance from campus",
-      "linear_dollars": -3.157162891859708,
+      "linear_dollars": -2.9082547502052014,
       "linear_change": "10 more miles from campus",
-      "linear_permutation_dollars": 9.448930353604283,
-      "forest_permutation_dollars": 121.33696348377202,
-      "forest_share": 0.2190542132155454,
-      "forest_impurity_share": 0.22382006719688372
+      "linear_permutation_dollars": 15.48866394180834,
+      "forest_permutation_dollars": 111.20087783181448,
+      "forest_share": 0.22671634623340314,
+      "forest_impurity_share": 0.2227616748632642
     },
     {
       "feature": "Bathrooms",
-      "linear_dollars": 194.9045577883875,
+      "linear_dollars": 193.2121660076796,
       "linear_change": "one more bathroom",
-      "linear_permutation_dollars": 42.20547579905067,
-      "forest_permutation_dollars": 89.9552838242172,
-      "forest_share": 0.16239967901727156,
-      "forest_impurity_share": 0.09954181301009699
+      "linear_permutation_dollars": 66.96970062195889,
+      "forest_permutation_dollars": 86.9170851887622,
+      "forest_share": 0.17720655055490822,
+      "forest_impurity_share": 0.09836556458303788
     },
     {
       "feature": "Bedrooms",
-      "linear_dollars": -53.23668257659916,
+      "linear_dollars": -55.58827057011102,
       "linear_change": "one more bedroom, same square footage",
-      "linear_permutation_dollars": 5.99378163803334,
-      "forest_permutation_dollars": 39.58119676890116,
-      "forest_share": 0.07145743281684266,
-      "forest_impurity_share": 0.05699568762749236
+      "linear_permutation_dollars": -3.615888614378059,
+      "forest_permutation_dollars": 35.5894356451584,
+      "forest_share": 0.07255974027635509,
+      "forest_impurity_share": 0.05791454648592964
     },
     {
       "feature": "State",
       "linear_dollars": null,
-      "linear_change": "ranges from -114 to +346 dollars across categories",
-      "linear_permutation_dollars": 23.004718551050292,
-      "forest_permutation_dollars": 27.175953721118663,
-      "forest_share": 0.049061777959837405,
-      "forest_impurity_share": 0.06296990061339552
+      "linear_change": "ranges from -112 to +342 dollars across categories",
+      "linear_permutation_dollars": 20.20018391115435,
+      "forest_permutation_dollars": 24.387821954370065,
+      "forest_share": 0.04972189063514459,
+      "forest_impurity_share": 0.06303475364099502
     },
     {
       "feature": "Chicago metro",
-      "linear_dollars": 462.32585510092997,
+      "linear_dollars": 503.35819084465976,
       "linear_change": "inside the Chicago metro rather than elsewhere in Illinois",
-      "linear_permutation_dollars": 41.79853710513007,
-      "forest_permutation_dollars": 19.83027643062046,
-      "forest_share": 0.035800348687127864,
-      "forest_impurity_share": 0.02696123126107393
+      "linear_permutation_dollars": 66.70152148615637,
+      "forest_permutation_dollars": 24.26463170524744,
+      "forest_share": 0.049470730359099775,
+      "forest_impurity_share": 0.027253976855609235
     },
     {
       "feature": "Amenity count",
-      "linear_dollars": 79.69878162453216,
+      "linear_dollars": 75.78533799159483,
       "linear_change": "one more listed amenity of any kind",
-      "linear_permutation_dollars": 161.62393323783402,
-      "forest_permutation_dollars": 9.803976314938211,
-      "forest_share": 0.017699489556946585,
-      "forest_impurity_share": 0.028040174268922427
-    },
-    {
-      "feature": "Amenity: Refrigerator",
-      "linear_dollars": -92.68714807527878,
-      "linear_change": "Refrigerator listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 15.656611968391143,
-      "forest_permutation_dollars": 8.474359902836,
-      "forest_share": 0.015299082717439016,
-      "forest_impurity_share": 0.00984788714792353
-    },
-    {
-      "feature": "Amenity: Storage",
-      "linear_dollars": 36.87390430640891,
-      "linear_change": "Storage listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 1.0261590200238175,
-      "forest_permutation_dollars": 8.143035748919157,
-      "forest_share": 0.01470093068056802,
-      "forest_impurity_share": 0.009035523618623725
+      "linear_permutation_dollars": 136.6630323636558,
+      "forest_permutation_dollars": 7.446335197782389,
+      "forest_share": 0.015181587967531442,
+      "forest_impurity_share": 0.029566620834284272
     },
     {
       "feature": "Amenity: Pool",
-      "linear_dollars": 4.3827582509832155,
+      "linear_dollars": 1.8494496647084402,
       "linear_change": "Pool listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 2.9747135200564117,
-      "forest_permutation_dollars": 6.859440156145683,
-      "forest_share": 0.012383606968247326,
-      "forest_impurity_share": 0.009788180167768968
+      "linear_permutation_dollars": 6.502884885934009,
+      "forest_permutation_dollars": 6.177344724648458,
+      "forest_share": 0.012594370230733941,
+      "forest_impurity_share": 0.010776891779296173
     },
     {
-      "feature": "Amenity: Parking",
-      "linear_dollars": 97.50705413319739,
-      "linear_change": "Parking listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 0.18537775200397846,
-      "forest_permutation_dollars": 6.291896224763332,
-      "forest_share": 0.011358998425353917,
-      "forest_impurity_share": 0.011410276413560702
+      "feature": "Amenity: Refrigerator",
+      "linear_dollars": -89.40101859853092,
+      "linear_change": "Refrigerator listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 11.510761048983715,
+      "forest_permutation_dollars": 5.9442511373726346,
+      "forest_share": 0.012119139032311762,
+      "forest_impurity_share": 0.00967520407084258
+    },
+    {
+      "feature": "Amenity: Storage",
+      "linear_dollars": 30.373989969935643,
+      "linear_change": "Storage listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 2.235349276625368,
+      "forest_permutation_dollars": 4.752418268446627,
+      "forest_share": 0.009689230216551744,
+      "forest_impurity_share": 0.008543010739139302
+    },
+    {
+      "feature": "Amenity: AC",
+      "linear_dollars": -84.94871146801412,
+      "linear_change": "AC listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 10.760493330308828,
+      "forest_permutation_dollars": 4.275601824962303,
+      "forest_share": 0.008717096866541048,
+      "forest_impurity_share": 0.009054373906929562
     },
     {
       "feature": "Pet policy",
       "linear_dollars": null,
-      "linear_change": "ranges from -122 to +62 dollars across categories",
-      "linear_permutation_dollars": 0.37110448058092516,
-      "forest_permutation_dollars": 5.928631400783513,
-      "forest_share": 0.01070318268774956,
-      "forest_impurity_share": 0.0238097783300091
+      "linear_change": "ranges from -127 to +70 dollars across categories",
+      "linear_permutation_dollars": -0.5200941459732803,
+      "forest_permutation_dollars": 3.8700785504126545,
+      "forest_share": 0.007890316027116793,
+      "forest_impurity_share": 0.024148544131596675
     },
     {
-      "feature": "Amenity: AC",
-      "linear_dollars": -90.88472504643832,
-      "linear_change": "AC listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 11.161557811889248,
-      "forest_permutation_dollars": 5.639092418398548,
-      "forest_share": 0.010180467002763337,
-      "forest_impurity_share": 0.009890812080271752
+      "feature": "Amenity: Parking",
+      "linear_dollars": 98.32558939431485,
+      "linear_change": "Parking listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 1.071513374209792,
+      "forest_permutation_dollars": 3.7014426229542323,
+      "forest_share": 0.007546501103507293,
+      "forest_impurity_share": 0.010753211306917717
     },
     {
       "feature": "Amenity: Playground",
-      "linear_dollars": -120.6342359986418,
+      "linear_dollars": -118.80973104698884,
       "linear_change": "Playground listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 10.144520958040516,
-      "forest_permutation_dollars": 4.147625331167125,
-      "forest_share": 0.007487865012817743,
-      "forest_impurity_share": 0.008234333510612582
-    },
-    {
-      "feature": "Amenity: Gym",
-      "linear_dollars": 92.95880258337543,
-      "linear_change": "Gym listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": -0.22561729102986874,
-      "forest_permutation_dollars": 3.709313662789748,
-      "forest_share": 0.006696564366230846,
-      "forest_impurity_share": 0.01049671234966307
-    },
-    {
-      "feature": "Amenity: Patio/Deck",
-      "linear_dollars": -21.028932128149368,
-      "linear_change": "Patio/Deck listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 9.528772565833231,
-      "forest_permutation_dollars": 3.595919051761496,
-      "forest_share": 0.006491848782549714,
-      "forest_impurity_share": 0.006931944235046756
+      "linear_permutation_dollars": 8.5377578220837,
+      "forest_permutation_dollars": 3.61822800247445,
+      "forest_share": 0.007376843137884849,
+      "forest_impurity_share": 0.008640566521874568
     },
     {
       "feature": "Amenity: Dishwasher",
-      "linear_dollars": 33.566543671126794,
+      "linear_dollars": 29.414683234015072,
       "linear_change": "Dishwasher listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 1.3511537296868141,
-      "forest_permutation_dollars": 3.5233160940015638,
-      "forest_share": 0.006360775914623936,
-      "forest_impurity_share": 0.007076669153161064
+      "linear_permutation_dollars": 2.9731426165744663,
+      "forest_permutation_dollars": 2.813957286617415,
+      "forest_share": 0.005737096027638001,
+      "forest_impurity_share": 0.006643452498507172
     },
     {
       "feature": "Amenity: Washer Dryer",
-      "linear_dollars": 4.674202421675133,
+      "linear_dollars": 7.408859082803967,
       "linear_change": "Washer Dryer listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 2.755093187529235,
-      "forest_permutation_dollars": 3.353981547650676,
-      "forest_share": 0.006055069848178108,
-      "forest_impurity_share": 0.01044007983871196
+      "linear_permutation_dollars": 5.099635194818563,
+      "forest_permutation_dollars": 2.7435498245314762,
+      "forest_share": 0.005593549296146965,
+      "forest_impurity_share": 0.009943355050695775
+    },
+    {
+      "feature": "Amenity: Gym",
+      "linear_dollars": 91.16167235703121,
+      "linear_change": "Gym listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": -0.6091213133469523,
+      "forest_permutation_dollars": 2.3501211345864474,
+      "forest_share": 0.004791426895435015,
+      "forest_impurity_share": 0.010746346550073657
+    },
+    {
+      "feature": "Amenity: Patio/Deck",
+      "linear_dollars": -14.330788084353953,
+      "linear_change": "Patio/Deck listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 9.212854472791616,
+      "forest_permutation_dollars": 1.9174673125853474,
+      "forest_share": 0.003909332296718249,
+      "forest_impurity_share": 0.006600797069548427
     },
     {
       "feature": "Amenity: Wood Floors",
-      "linear_dollars": -24.46932804315284,
+      "linear_dollars": -27.94514400546991,
       "linear_change": "Wood Floors listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 3.306012790918237,
-      "forest_permutation_dollars": 1.3812085654675683,
-      "forest_share": 0.002493548106925682,
-      "forest_impurity_share": 0.003507295986661337
-    },
-    {
-      "feature": "Amenity: Clubhouse",
-      "linear_dollars": -55.58875136019189,
-      "linear_change": "Clubhouse listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 10.273298224661312,
-      "forest_permutation_dollars": 1.2281153256780613,
-      "forest_share": 0.00221716308600669,
-      "forest_impurity_share": 0.003742168616976859
+      "linear_permutation_dollars": 2.4507075583912297,
+      "forest_permutation_dollars": 0.8992887661247664,
+      "forest_share": 0.001833469908150505,
+      "forest_impurity_share": 0.0037290110171419137
     },
     {
       "feature": "Amenities not listed",
-      "linear_dollars": 84.45424437513215,
+      "linear_dollars": 84.84841067973747,
       "linear_change": "no amenity list in the listing",
-      "linear_permutation_dollars": 4.680948393939934,
-      "forest_permutation_dollars": 1.1810788268104262,
-      "forest_share": 0.0021322463141011383,
-      "forest_impurity_share": 0.0035054037526967992
+      "linear_permutation_dollars": 4.027882632549586,
+      "forest_permutation_dollars": 0.8254720980819684,
+      "forest_share": 0.001682972487661625,
+      "forest_impurity_share": 0.003887255451354194
+    },
+    {
+      "feature": "Amenity: Clubhouse",
+      "linear_dollars": -53.323712737019015,
+      "linear_change": "Clubhouse listed, which also adds one to the amenity count",
+      "linear_permutation_dollars": 8.958515896767016,
+      "forest_permutation_dollars": 0.7094835174257923,
+      "forest_share": 0.001446494973060178,
+      "forest_impurity_share": 0.0036234666661201223
     },
     {
       "feature": "Amenity: Internet Access",
-      "linear_dollars": 59.44781645014071,
+      "linear_dollars": 55.482644511418016,
       "linear_change": "Internet Access listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 0.5211722342186818,
-      "forest_permutation_dollars": 0.7640803619367602,
-      "forest_share": 0.0013794232005805175,
-      "forest_impurity_share": 0.0036001950841959233
+      "linear_permutation_dollars": 0.4610892128970249,
+      "forest_permutation_dollars": 0.6856029566692314,
+      "forest_share": 0.0013978072865392063,
+      "forest_impurity_share": 0.0033793109330358517
     },
     {
       "feature": "Amenity: Cable or Satellite",
-      "linear_dollars": -11.19347418021488,
+      "linear_dollars": -15.525388093423425,
       "linear_change": "Cable or Satellite listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 2.7506782889247803,
-      "forest_permutation_dollars": 0.478830029496919,
-      "forest_share": 0.0008644499776809749,
-      "forest_impurity_share": 0.0035821451088125567
+      "linear_permutation_dollars": 4.37492456368692,
+      "forest_permutation_dollars": 0.6009960530591798,
+      "forest_share": 0.0012253107341144668,
+      "forest_impurity_share": 0.003597447127740767
     },
     {
       "feature": "Amenity: Fireplace",
-      "linear_dollars": -18.307665063874566,
+      "linear_dollars": -13.340468953952595,
       "linear_change": "Fireplace listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 2.573069484149687,
-      "forest_permutation_dollars": 0.3029619040183661,
-      "forest_share": 0.0005469485935166215,
-      "forest_impurity_share": 0.0024909830265697295
+      "linear_permutation_dollars": 2.842716114573386,
+      "forest_permutation_dollars": 0.42604979652609243,
+      "forest_share": 0.0008686303117855919,
+      "forest_impurity_share": 0.002389049554071625
     },
     {
       "feature": "Amenity: Tennis",
-      "linear_dollars": -54.45654990562828,
+      "linear_dollars": -55.49459994941499,
       "linear_change": "Tennis listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 3.838916919168105,
-      "forest_permutation_dollars": 0.22213640542752272,
-      "forest_share": 0.00040103126137620317,
-      "forest_impurity_share": 0.00098538578580527
+      "linear_permutation_dollars": 3.4696284620694997,
+      "forest_permutation_dollars": 0.10968833602653376,
+      "forest_share": 0.00022363257604826874,
+      "forest_impurity_share": 0.0013646340369276998
     },
     {
       "feature": "Amenity: Garbage Disposal",
-      "linear_dollars": 8.20588051033782,
+      "linear_dollars": 10.994003083731236,
       "linear_change": "Garbage Disposal listed, which also adds one to the amenity count",
-      "linear_permutation_dollars": 0.5879159414191804,
-      "forest_permutation_dollars": 0.1667563834435896,
-      "forest_share": 0.0003010516113565903,
-      "forest_impurity_share": 0.0016381592461786484
+      "linear_permutation_dollars": 1.2414599097806558,
+      "forest_permutation_dollars": 0.07175371782852835,
+      "forest_share": 0.00014629147765677402,
+      "forest_impurity_share": 0.0019058445426715879
     }
   ],
   "linear_effects": [
     {
       "feature": "bedrooms",
       "change": "one more bedroom, same square footage",
-      "coefficient": -0.05614898601031219,
-      "dollars": -53.23668257659916
+      "coefficient": -0.058395004649642895,
+      "dollars": -55.58827057011102
     },
     {
       "feature": "bathrooms",
       "change": "one more bathroom",
-      "coefficient": 0.18223997892673122,
-      "dollars": 194.9045577883875
+      "coefficient": 0.17994813531985782,
+      "dollars": 193.2121660076796
     },
     {
       "feature": "log_square_feet",
       "change": "10% more square footage",
-      "coefficient": 0.5640220308719027,
-      "dollars": 53.84748915679022
+      "coefficient": 0.566628995610509,
+      "dollars": 54.38061103740555
     },
     {
       "feature": "distance_from_campus_miles",
       "change": "10 more miles from campus",
-      "coefficient": -0.0003243369828643313,
-      "dollars": -3.157162891859708
+      "coefficient": -0.0002972018964319444,
+      "dollars": -2.9082547502052014
     },
     {
       "feature": "amenities_unknown",
       "change": "no amenity list in the listing",
-      "coefficient": 0.0830717197233439,
-      "dollars": 84.45424437513215
+      "coefficient": 0.08303515895806242,
+      "dollars": 84.84841067973747
     },
     {
       "feature": "amenity_count",
       "change": "one more listed amenity of any kind",
-      "coefficient": 0.07857301909730159,
-      "dollars": 79.69878162453216
+      "coefficient": 0.07448759352068107,
+      "dollars": 75.78533799159483
     },
     {
       "feature": "amenity_ac",
       "change": "AC listed, which also adds one to the amenity count",
-      "coefficient": -0.1764230344278676,
-      "dollars": -90.88472504643832
+      "coefficient": -0.16515914293001718,
+      "dollars": -84.94871146801412
     },
     {
       "feature": "amenity_cable_or_satellite",
       "change": "Cable or Satellite listed, which also adds one to the amenity count",
-      "coefficient": -0.09011991498448366,
-      "dollars": -11.19347418021488
+      "coefficient": -0.09045665572968485,
+      "dollars": -15.525388093423425
     },
     {
       "feature": "amenity_clubhouse",
       "change": "Clubhouse listed, which also adds one to the amenity count",
-      "coefficient": -0.13727697203627276,
-      "dollars": -55.58875136019189
+      "coefficient": -0.13043586528414886,
+      "dollars": -53.323712737019015
     },
     {
       "feature": "amenity_dishwasher",
       "change": "Dishwasher listed, which also adds one to the amenity count",
-      "coefficient": -0.04472515206047187,
-      "dollars": 33.566543671126794
+      "coefficient": -0.044914244887992186,
+      "dollars": 29.414683234015072
     },
     {
       "feature": "amenity_fireplace",
       "change": "Fireplace listed, which also adds one to the amenity count",
-      "coefficient": -0.09752863942584991,
-      "dollars": -18.307665063874566
+      "coefficient": -0.08819381958259037,
+      "dollars": -13.340468953952595
     },
     {
       "feature": "amenity_garbage_disposal",
       "change": "Garbage Disposal listed, which also adds one to the amenity count",
-      "coefficient": -0.07019195087022341,
-      "dollars": 8.20588051033782
+      "coefficient": -0.06333168225229718,
+      "dollars": 10.994003083731236
     },
     {
       "feature": "amenity_gym",
       "change": "Gym listed, which also adds one to the amenity count",
-      "coefficient": 0.012493954320846264,
-      "dollars": 92.95880258337543
+      "coefficient": 0.014458848451682289,
+      "dollars": 91.16167235703121
     },
     {
       "feature": "amenity_internet_access",
       "change": "Internet Access listed, which also adds one to the amenity count",
-      "coefficient": -0.01938743743933132,
-      "dollars": 59.44781645014071
+      "coefficient": -0.019417244981264774,
+      "dollars": 55.482644511418016
     },
     {
       "feature": "amenity_parking",
       "change": "Parking listed, which also adds one to the amenity count",
-      "coefficient": 0.016743737965763672,
-      "dollars": 97.50705413319739
+      "coefficient": 0.02112457165949848,
+      "dollars": 98.32558939431485
     },
     {
       "feature": "amenity_patio_deck",
       "change": "Patio/Deck listed, which also adds one to the amenity count",
-      "coefficient": -0.10037714628509407,
-      "dollars": -21.028932128149368
+      "coefficient": -0.08921882034471552,
+      "dollars": -14.330788084353953
     },
     {
       "feature": "amenity_playground",
       "change": "Playground listed, which also adds one to the amenity count",
-      "coefficient": -0.2106510929151807,
-      "dollars": -120.6342359986418
+      "coefficient": -0.2037246991632361,
+      "dollars": -118.80973104698884
     },
     {
       "feature": "amenity_pool",
       "change": "Pool listed, which also adds one to the amenity count",
-      "coefficient": -0.07408795538154062,
-      "dollars": 4.3827582509832155
+      "coefficient": -0.07260217849773774,
+      "dollars": 1.8494496647084402
     },
     {
       "feature": "amenity_refrigerator",
       "change": "Refrigerator listed, which also adds one to the amenity count",
-      "coefficient": -0.17846378958451123,
-      "dollars": -92.68714807527878
+      "coefficient": -0.1701459160200338,
+      "dollars": -89.40101859853092
     },
     {
       "feature": "amenity_storage",
       "change": "Storage listed, which also adds one to the amenity count",
-      "coefficient": -0.04145124849876187,
-      "dollars": 36.87390430640891
+      "coefficient": -0.043964336790396186,
+      "dollars": 30.373989969935643
     },
     {
       "feature": "amenity_tennis",
       "change": "Tennis listed, which also adds one to the amenity count",
-      "coefficient": -0.13604628782622818,
-      "dollars": -54.45654990562828
+      "coefficient": -0.13278127332532946,
+      "dollars": -55.49459994941499
     },
     {
       "feature": "amenity_washer_dryer",
       "change": "Washer Dryer listed, which also adds one to the amenity count",
-      "coefficient": -0.07379042021161684,
-      "dollars": 4.674202421675133
+      "coefficient": -0.06695596726912253,
+      "dollars": 7.408859082803967
     },
     {
       "feature": "amenity_wood_floors",
       "change": "Wood Floors listed, which also adds one to the amenity count",
-      "coefficient": -0.10399005940077677,
-      "dollars": -24.46932804315284
+      "coefficient": -0.1034175102110142,
+      "dollars": -27.94514400546991
     },
     {
       "feature": "pets_unknown",
       "change": "pet policy not stated",
-      "coefficient": -0.09258486213736404,
-      "dollars": -86.2174464972028
+      "coefficient": -0.08898968562972845,
+      "dollars": -83.44209051447923
     },
     {
       "feature": "pets_none_allowed",
       "change": "explicitly no pets",
-      "coefficient": -0.06675746231913668,
-      "dollars": -62.963502302517625
+      "coefficient": -0.06833440665997448,
+      "dollars": -64.73085917267132
     },
     {
       "feature": "pets_cats",
       "change": "cats allowed",
-      "coefficient": -0.1331258223383569,
-      "dollars": -121.52892767603284
+      "coefficient": -0.1385577629267108,
+      "dollars": -126.79929854925676
     },
     {
       "feature": "pets_dogs",
       "change": "dogs allowed",
-      "coefficient": 0.06210272663030242,
-      "dollars": 62.46985641832488
+      "coefficient": 0.06852211420606037,
+      "dollars": 69.50582118332872
     },
     {
       "feature": "is_chicago_metro",
       "change": "inside the Chicago metro rather than elsewhere in Illinois",
-      "coefficient": 0.3881021500574837,
-      "dollars": 462.32585510092997
+      "coefficient": 0.4145112725599514,
+      "dollars": 503.35819084465976
     },
     {
       "feature": "state_IA",
       "change": "in IA rather than OH",
-      "coefficient": -0.06874133242114219,
-      "dollars": -64.77107065898433
+      "coefficient": -0.07081297014087154,
+      "dollars": -66.99660278570568
     },
     {
       "feature": "state_IL",
       "change": "in IL rather than OH",
-      "coefficient": -0.0014476396539953463,
-      "dollars": -1.410427520926455
+      "coefficient": -0.017689358309040393,
+      "dollars": -17.183143682800313
     },
     {
       "feature": "state_IN",
       "change": "in IN rather than OH",
-      "coefficient": -0.07870185079186649,
-      "dollars": -73.79241939103773
+      "coefficient": -0.08173883551744471,
+      "dollars": -76.91765824062455
     },
     {
       "feature": "state_KS",
       "change": "in KS rather than OH",
-      "coefficient": -0.12435589093025344,
-      "dollars": -114.011127802168
+      "coefficient": -0.12090711683552745,
+      "dollars": -111.60606416803692
     },
     {
       "feature": "state_MI",
       "change": "in MI rather than OH",
-      "coefficient": 0.10163659794887014,
-      "dollars": 104.30659142979657
+      "coefficient": 0.09697990744934051,
+      "dollars": 99.80146996488789
     },
     {
       "feature": "state_MN",
       "change": "in MN rather than OH",
-      "coefficient": 0.30377609591128696,
-      "dollars": 346.09149878164993
+      "coefficient": 0.299591036000866,
+      "dollars": 342.3207392516465
     },
     {
       "feature": "state_MO",
       "change": "in MO rather than OH",
-      "coefficient": -0.015330673362205248,
-      "dollars": -14.83341290108022
+      "coefficient": -0.0087190165702813,
+      "dollars": -8.50749385314563
     },
     {
       "feature": "state_ND",
       "change": "in ND rather than OH",
-      "coefficient": -0.04019546925876657,
-      "dollars": -38.413388611008465
+      "coefficient": -0.0492702206931605,
+      "dollars": -47.114611894029665
     },
     {
       "feature": "state_NE",
       "change": "in NE rather than OH",
-      "coefficient": -0.07567485909271367,
-      "dollars": -71.06033861850872
+      "coefficient": -0.07363282758836541,
+      "dollars": -69.56751570738159
     },
     {
       "feature": "state_SD",
       "change": "in SD rather than OH",
-      "coefficient": -0.07541183281476932,
-      "dollars": -70.82254746259888
+      "coefficient": -0.08656992780461582,
+      "dollars": -81.2700106034895
     },
     {
       "feature": "state_WI",
       "change": "in WI rather than OH",
-      "coefficient": 0.12187497951774219,
-      "dollars": 126.3725465012499
+      "coefficient": 0.12837288255625556,
+      "dollars": 134.2373448596124
     }
   ],
   "variants": {
     "excluding_flagged": {
       "exclude_flagged": true,
-      "train_rows": 9367,
-      "test_rows": 2331,
-      "baseline_value": 1115.8645243941496,
+      "train_rows": 9211,
+      "test_rows": 2300,
+      "baseline_value": 1117.2367821083487,
       "baseline": {
         "held_out_all": {
-          "rmse": 537.0907308389843,
-          "mae": 378.9988727918695,
-          "r2": -5.736224204522244e-07,
-          "rows": 2331
+          "rmse": 619.6106059643555,
+          "mae": 385.7054773829023,
+          "r2": -0.0007144163693542094,
+          "rows": 2300
         },
         "held_out_unflagged": {
-          "rmse": 537.0907308389843,
-          "mae": 378.9988727918695,
-          "r2": -5.736224204522244e-07,
-          "rows": 2331
+          "rmse": 619.6106059643555,
+          "mae": 385.7054773829023,
+          "r2": -0.0007144163693542094,
+          "rows": 2300
         },
         "chicago_metro": {
-          "rmse": 968.8094041761254,
-          "mae": 668.0687799229702,
-          "r2": -0.5325670078446063,
+          "rmse": 1639.7610976743604,
+          "mae": 864.6097433670444,
+          "r2": -0.2738560245227637,
           "rows": 130
         },
         "outside_chicago_metro": {
-          "rmse": 500.0674131244347,
-          "mae": 361.925229935421,
-          "r2": -0.004688950027480043,
-          "rows": 2201
+          "rmse": 495.81830024712025,
+          "mae": 357.01536006588,
+          "r2": -0.0031994100759238364,
+          "rows": 2170
         },
         "near_campus": {
-          "rmse": 1025.849399756134,
-          "mae": 707.89469321067,
-          "r2": -0.7380883629943196,
+          "rmse": 1755.582432252786,
+          "mae": 972.4666263871646,
+          "r2": -0.3584588662115362,
           "rows": 115
         }
       },
@@ -569,1301 +569,1301 @@
         "linear": {
           "cross_validation": {
             "rmse": {
-              "mean": 383.6979081392897,
-              "std": 26.363828542772374
+              "mean": 379.90161214624743,
+              "std": 19.270390268950017
             },
             "mae": {
-              "mean": 248.14870603089327,
-              "std": 9.426872589216895
+              "mean": 249.56302582334106,
+              "std": 9.154452900360761
             },
             "r2": {
-              "mean": 0.5076528338619095,
-              "std": 0.03478702960105327
+              "mean": 0.4825169179287448,
+              "std": 0.023980652006621358
             }
           },
           "evaluation": {
             "held_out_all": {
-              "rmse": 391.43103150885077,
-              "mae": 254.433984452297,
-              "r2": 0.4688521363828737,
-              "rows": 2331
+              "rmse": 419.1134641469834,
+              "mae": 254.84923781723447,
+              "r2": 0.542136845525936,
+              "rows": 2300
             },
             "held_out_unflagged": {
-              "rmse": 391.43103150885077,
-              "mae": 254.433984452297,
-              "r2": 0.4688521363828737,
-              "rows": 2331
+              "rmse": 419.1134641469834,
+              "mae": 254.84923781723447,
+              "r2": 0.542136845525936,
+              "rows": 2300
             },
             "chicago_metro": {
-              "rmse": 702.8868537571003,
-              "mae": 517.7858915093236,
-              "r2": 0.19329709323298805,
+              "rmse": 976.3878422735443,
+              "mae": 587.9116251163706,
+              "r2": 0.548348024852634,
               "rows": 130
             },
             "outside_chicago_metro": {
-              "rmse": 364.8113885449806,
-              "mae": 238.87935114134132,
-              "r2": 0.4652986367105707,
-              "rows": 2201
+              "rmse": 359.25915962925075,
+              "mae": 234.89619157350737,
+              "r2": 0.47330661596655665,
+              "rows": 2170
             },
             "near_campus": {
-              "rmse": 718.2060713512678,
-              "mae": 515.4656915807321,
-              "r2": 0.14807222274194476,
+              "rmse": 1039.3983237453085,
+              "mae": 624.5318145337108,
+              "r2": 0.5238233841316853,
               "rows": 115
             }
           },
           "interval_quantiles": {
             "coverage": 0.8,
             "edges": [
-              6.676450145337035,
-              6.826145711663823,
-              6.996902537721025,
-              7.178511860685662
+              6.682747827554252,
+              6.8301501233667015,
+              6.9994021844405125,
+              7.181324322109482
             ],
             "limits": [
               [
-                -0.2963266458772061,
-                0.31277559487273265
+                -0.3006345542209951,
+                0.3165362235239444
               ],
               [
-                -0.28296108987512325,
-                0.37808698069425595
+                -0.2876512609267967,
+                0.36728613292373735
               ],
               [
-                -0.32284334239050366,
-                0.3453785623676886
+                -0.32791395080993074,
+                0.34394764191479055
               ],
               [
-                -0.3531666140543365,
-                0.35438533074202777
+                -0.36196461661956114,
+                0.35625630429783284
               ],
               [
-                -0.38138565983750844,
-                0.44284063101538074
+                -0.38550050211033915,
+                0.44754731428351807
               ]
             ]
           },
-          "interval_coverage_held_out": 0.7919347919347919,
-          "interval_median_width": 681.5244062203556,
-          "interval_median_relative_width": 0.7059407768192272,
+          "interval_coverage_held_out": 0.808695652173913,
+          "interval_median_width": 687.1643404834246,
+          "interval_median_relative_width": 0.6937878728747527,
           "error_by_price": [
             {
-              "band": "$375 to $725",
-              "rows": 483,
-              "mae": 176.94496746892722,
-              "median_percent_error": 0.25622232827931946,
-              "coverage": 0.6459627329192547
+              "band": "$325 to $735",
+              "rows": 468,
+              "mae": 177.06813681272456,
+              "median_percent_error": 0.23991801888388162,
+              "coverage": 0.6837606837606838
             },
             {
-              "band": "$725 to $880",
-              "rows": 453,
-              "mae": 157.48589313574922,
-              "median_percent_error": 0.14251079655304202,
-              "coverage": 0.8675496688741722
+              "band": "$735 to $895",
+              "rows": 454,
+              "mae": 152.55727477010856,
+              "median_percent_error": 0.14286259197787843,
+              "coverage": 0.9096916299559471
             },
             {
-              "band": "$880 to $1,095",
-              "rows": 463,
-              "mae": 172.7539084204548,
-              "median_percent_error": 0.1481417270817705,
-              "coverage": 0.91792656587473
+              "band": "$895 to $1,095",
+              "rows": 462,
+              "mae": 162.85260263279199,
+              "median_percent_error": 0.14080125159395082,
+              "coverage": 0.9285714285714286
             },
             {
-              "band": "$1,095 to $1,410",
-              "rows": 467,
-              "mae": 223.9938110272413,
-              "median_percent_error": 0.1539968095208346,
-              "coverage": 0.8736616702355461
+              "band": "$1,095 to $1,415",
+              "rows": 456,
+              "mae": 205.34322041616448,
+              "median_percent_error": 0.13494009652001393,
+              "coverage": 0.8728070175438597
             },
             {
-              "band": "$1,410 to $6,000",
-              "rows": 465,
-              "mae": 541.2686441546791,
-              "median_percent_error": 0.23597449535249274,
-              "coverage": 0.6623655913978495
+              "band": "$1,415 to $15,000",
+              "rows": 460,
+              "mae": 576.412924520726,
+              "median_percent_error": 0.25588691206862835,
+              "coverage": 0.6521739130434783
             }
           ],
           "coverage_by_predicted_band": [
             {
-              "band": "under $793",
-              "rows": 448,
-              "coverage": 0.8169642857142857
-            },
-            {
-              "band": "$793 to $922",
-              "rows": 481,
-              "coverage": 0.7650727650727651
-            },
-            {
-              "band": "$922 to $1,093",
-              "rows": 485,
-              "coverage": 0.7876288659793814
-            },
-            {
-              "band": "$1,093 to $1,311",
+              "band": "under $799",
               "rows": 443,
-              "coverage": 0.781038374717833
+              "coverage": 0.8600451467268623
             },
             {
-              "band": "$1,311 and up",
+              "band": "$799 to $925",
+              "rows": 465,
+              "coverage": 0.7741935483870968
+            },
+            {
+              "band": "$925 to $1,096",
+              "rows": 477,
+              "coverage": 0.7966457023060797
+            },
+            {
+              "band": "$1,096 to $1,315",
               "rows": 474,
-              "coverage": 0.810126582278481
+              "coverage": 0.8016877637130801
+            },
+            {
+              "band": "$1,315 and up",
+              "rows": 441,
+              "coverage": 0.8140589569160998
             }
           ],
-          "abs_error_vs_prediction_spearman": 0.32468100883579837,
+          "abs_error_vs_prediction_spearman": 0.3387919502930098,
           "permutation_importance": {
-            "Bedrooms": 5.99378163803334,
-            "Bathrooms": 42.20547579905067,
-            "Square footage": 120.31437341655396,
-            "Distance from campus": 9.448930353604283,
-            "Amenity count": 161.62393323783402,
-            "Amenities not listed": 4.680948393939934,
-            "Pet policy": 0.37110448058092516,
-            "Chicago metro": 41.79853710513007,
-            "State": 23.004718551050292,
-            "Amenity: AC": 11.161557811889248,
-            "Amenity: Cable or Satellite": 2.7506782889247803,
-            "Amenity: Clubhouse": 10.273298224661312,
-            "Amenity: Dishwasher": 1.3511537296868141,
-            "Amenity: Fireplace": 2.573069484149687,
-            "Amenity: Garbage Disposal": 0.5879159414191804,
-            "Amenity: Gym": -0.22561729102986874,
-            "Amenity: Internet Access": 0.5211722342186818,
-            "Amenity: Parking": 0.18537775200397846,
-            "Amenity: Patio/Deck": 9.528772565833231,
-            "Amenity: Playground": 10.144520958040516,
-            "Amenity: Pool": 2.9747135200564117,
-            "Amenity: Refrigerator": 15.656611968391143,
-            "Amenity: Storage": 1.0261590200238175,
-            "Amenity: Tennis": 3.838916919168105,
-            "Amenity: Washer Dryer": 2.755093187529235,
-            "Amenity: Wood Floors": 3.306012790918237
+            "Bedrooms": -3.615888614378059,
+            "Bathrooms": 66.96970062195889,
+            "Square footage": 153.0855838275301,
+            "Distance from campus": 15.48866394180834,
+            "Amenity count": 136.6630323636558,
+            "Amenities not listed": 4.027882632549586,
+            "Pet policy": -0.5200941459732803,
+            "Chicago metro": 66.70152148615637,
+            "State": 20.20018391115435,
+            "Amenity: AC": 10.760493330308828,
+            "Amenity: Cable or Satellite": 4.37492456368692,
+            "Amenity: Clubhouse": 8.958515896767016,
+            "Amenity: Dishwasher": 2.9731426165744663,
+            "Amenity: Fireplace": 2.842716114573386,
+            "Amenity: Garbage Disposal": 1.2414599097806558,
+            "Amenity: Gym": -0.6091213133469523,
+            "Amenity: Internet Access": 0.4610892128970249,
+            "Amenity: Parking": 1.071513374209792,
+            "Amenity: Patio/Deck": 9.212854472791616,
+            "Amenity: Playground": 8.5377578220837,
+            "Amenity: Pool": 6.502884885934009,
+            "Amenity: Refrigerator": 11.510761048983715,
+            "Amenity: Storage": 2.235349276625368,
+            "Amenity: Tennis": 3.4696284620694997,
+            "Amenity: Washer Dryer": 5.099635194818563,
+            "Amenity: Wood Floors": 2.4507075583912297
           },
           "dollar_effects": [
             {
               "feature": "bedrooms",
               "change": "one more bedroom, same square footage",
-              "coefficient": -0.05614898601031219,
-              "dollars": -53.23668257659916
+              "coefficient": -0.058395004649642895,
+              "dollars": -55.58827057011102
             },
             {
               "feature": "bathrooms",
               "change": "one more bathroom",
-              "coefficient": 0.18223997892673122,
-              "dollars": 194.9045577883875
+              "coefficient": 0.17994813531985782,
+              "dollars": 193.2121660076796
             },
             {
               "feature": "log_square_feet",
               "change": "10% more square footage",
-              "coefficient": 0.5640220308719027,
-              "dollars": 53.84748915679022
+              "coefficient": 0.566628995610509,
+              "dollars": 54.38061103740555
             },
             {
               "feature": "distance_from_campus_miles",
               "change": "10 more miles from campus",
-              "coefficient": -0.0003243369828643313,
-              "dollars": -3.157162891859708
+              "coefficient": -0.0002972018964319444,
+              "dollars": -2.9082547502052014
             },
             {
               "feature": "amenities_unknown",
               "change": "no amenity list in the listing",
-              "coefficient": 0.0830717197233439,
-              "dollars": 84.45424437513215
+              "coefficient": 0.08303515895806242,
+              "dollars": 84.84841067973747
             },
             {
               "feature": "amenity_count",
               "change": "one more listed amenity of any kind",
-              "coefficient": 0.07857301909730159,
-              "dollars": 79.69878162453216
+              "coefficient": 0.07448759352068107,
+              "dollars": 75.78533799159483
             },
             {
               "feature": "amenity_ac",
               "change": "AC listed, which also adds one to the amenity count",
-              "coefficient": -0.1764230344278676,
-              "dollars": -90.88472504643832
+              "coefficient": -0.16515914293001718,
+              "dollars": -84.94871146801412
             },
             {
               "feature": "amenity_cable_or_satellite",
               "change": "Cable or Satellite listed, which also adds one to the amenity count",
-              "coefficient": -0.09011991498448366,
-              "dollars": -11.19347418021488
+              "coefficient": -0.09045665572968485,
+              "dollars": -15.525388093423425
             },
             {
               "feature": "amenity_clubhouse",
               "change": "Clubhouse listed, which also adds one to the amenity count",
-              "coefficient": -0.13727697203627276,
-              "dollars": -55.58875136019189
+              "coefficient": -0.13043586528414886,
+              "dollars": -53.323712737019015
             },
             {
               "feature": "amenity_dishwasher",
               "change": "Dishwasher listed, which also adds one to the amenity count",
-              "coefficient": -0.04472515206047187,
-              "dollars": 33.566543671126794
+              "coefficient": -0.044914244887992186,
+              "dollars": 29.414683234015072
             },
             {
               "feature": "amenity_fireplace",
               "change": "Fireplace listed, which also adds one to the amenity count",
-              "coefficient": -0.09752863942584991,
-              "dollars": -18.307665063874566
+              "coefficient": -0.08819381958259037,
+              "dollars": -13.340468953952595
             },
             {
               "feature": "amenity_garbage_disposal",
               "change": "Garbage Disposal listed, which also adds one to the amenity count",
-              "coefficient": -0.07019195087022341,
-              "dollars": 8.20588051033782
+              "coefficient": -0.06333168225229718,
+              "dollars": 10.994003083731236
             },
             {
               "feature": "amenity_gym",
               "change": "Gym listed, which also adds one to the amenity count",
-              "coefficient": 0.012493954320846264,
-              "dollars": 92.95880258337543
+              "coefficient": 0.014458848451682289,
+              "dollars": 91.16167235703121
             },
             {
               "feature": "amenity_internet_access",
               "change": "Internet Access listed, which also adds one to the amenity count",
-              "coefficient": -0.01938743743933132,
-              "dollars": 59.44781645014071
+              "coefficient": -0.019417244981264774,
+              "dollars": 55.482644511418016
             },
             {
               "feature": "amenity_parking",
               "change": "Parking listed, which also adds one to the amenity count",
-              "coefficient": 0.016743737965763672,
-              "dollars": 97.50705413319739
+              "coefficient": 0.02112457165949848,
+              "dollars": 98.32558939431485
             },
             {
               "feature": "amenity_patio_deck",
               "change": "Patio/Deck listed, which also adds one to the amenity count",
-              "coefficient": -0.10037714628509407,
-              "dollars": -21.028932128149368
+              "coefficient": -0.08921882034471552,
+              "dollars": -14.330788084353953
             },
             {
               "feature": "amenity_playground",
               "change": "Playground listed, which also adds one to the amenity count",
-              "coefficient": -0.2106510929151807,
-              "dollars": -120.6342359986418
+              "coefficient": -0.2037246991632361,
+              "dollars": -118.80973104698884
             },
             {
               "feature": "amenity_pool",
               "change": "Pool listed, which also adds one to the amenity count",
-              "coefficient": -0.07408795538154062,
-              "dollars": 4.3827582509832155
+              "coefficient": -0.07260217849773774,
+              "dollars": 1.8494496647084402
             },
             {
               "feature": "amenity_refrigerator",
               "change": "Refrigerator listed, which also adds one to the amenity count",
-              "coefficient": -0.17846378958451123,
-              "dollars": -92.68714807527878
+              "coefficient": -0.1701459160200338,
+              "dollars": -89.40101859853092
             },
             {
               "feature": "amenity_storage",
               "change": "Storage listed, which also adds one to the amenity count",
-              "coefficient": -0.04145124849876187,
-              "dollars": 36.87390430640891
+              "coefficient": -0.043964336790396186,
+              "dollars": 30.373989969935643
             },
             {
               "feature": "amenity_tennis",
               "change": "Tennis listed, which also adds one to the amenity count",
-              "coefficient": -0.13604628782622818,
-              "dollars": -54.45654990562828
+              "coefficient": -0.13278127332532946,
+              "dollars": -55.49459994941499
             },
             {
               "feature": "amenity_washer_dryer",
               "change": "Washer Dryer listed, which also adds one to the amenity count",
-              "coefficient": -0.07379042021161684,
-              "dollars": 4.674202421675133
+              "coefficient": -0.06695596726912253,
+              "dollars": 7.408859082803967
             },
             {
               "feature": "amenity_wood_floors",
               "change": "Wood Floors listed, which also adds one to the amenity count",
-              "coefficient": -0.10399005940077677,
-              "dollars": -24.46932804315284
+              "coefficient": -0.1034175102110142,
+              "dollars": -27.94514400546991
             },
             {
               "feature": "pets_unknown",
               "change": "pet policy not stated",
-              "coefficient": -0.09258486213736404,
-              "dollars": -86.2174464972028
+              "coefficient": -0.08898968562972845,
+              "dollars": -83.44209051447923
             },
             {
               "feature": "pets_none_allowed",
               "change": "explicitly no pets",
-              "coefficient": -0.06675746231913668,
-              "dollars": -62.963502302517625
+              "coefficient": -0.06833440665997448,
+              "dollars": -64.73085917267132
             },
             {
               "feature": "pets_cats",
               "change": "cats allowed",
-              "coefficient": -0.1331258223383569,
-              "dollars": -121.52892767603284
+              "coefficient": -0.1385577629267108,
+              "dollars": -126.79929854925676
             },
             {
               "feature": "pets_dogs",
               "change": "dogs allowed",
-              "coefficient": 0.06210272663030242,
-              "dollars": 62.46985641832488
+              "coefficient": 0.06852211420606037,
+              "dollars": 69.50582118332872
             },
             {
               "feature": "is_chicago_metro",
               "change": "inside the Chicago metro rather than elsewhere in Illinois",
-              "coefficient": 0.3881021500574837,
-              "dollars": 462.32585510092997
+              "coefficient": 0.4145112725599514,
+              "dollars": 503.35819084465976
             },
             {
               "feature": "state_IA",
               "change": "in IA rather than OH",
-              "coefficient": -0.06874133242114219,
-              "dollars": -64.77107065898433
+              "coefficient": -0.07081297014087154,
+              "dollars": -66.99660278570568
             },
             {
               "feature": "state_IL",
               "change": "in IL rather than OH",
-              "coefficient": -0.0014476396539953463,
-              "dollars": -1.410427520926455
+              "coefficient": -0.017689358309040393,
+              "dollars": -17.183143682800313
             },
             {
               "feature": "state_IN",
               "change": "in IN rather than OH",
-              "coefficient": -0.07870185079186649,
-              "dollars": -73.79241939103773
+              "coefficient": -0.08173883551744471,
+              "dollars": -76.91765824062455
             },
             {
               "feature": "state_KS",
               "change": "in KS rather than OH",
-              "coefficient": -0.12435589093025344,
-              "dollars": -114.011127802168
+              "coefficient": -0.12090711683552745,
+              "dollars": -111.60606416803692
             },
             {
               "feature": "state_MI",
               "change": "in MI rather than OH",
-              "coefficient": 0.10163659794887014,
-              "dollars": 104.30659142979657
+              "coefficient": 0.09697990744934051,
+              "dollars": 99.80146996488789
             },
             {
               "feature": "state_MN",
               "change": "in MN rather than OH",
-              "coefficient": 0.30377609591128696,
-              "dollars": 346.09149878164993
+              "coefficient": 0.299591036000866,
+              "dollars": 342.3207392516465
             },
             {
               "feature": "state_MO",
               "change": "in MO rather than OH",
-              "coefficient": -0.015330673362205248,
-              "dollars": -14.83341290108022
+              "coefficient": -0.0087190165702813,
+              "dollars": -8.50749385314563
             },
             {
               "feature": "state_ND",
               "change": "in ND rather than OH",
-              "coefficient": -0.04019546925876657,
-              "dollars": -38.413388611008465
+              "coefficient": -0.0492702206931605,
+              "dollars": -47.114611894029665
             },
             {
               "feature": "state_NE",
               "change": "in NE rather than OH",
-              "coefficient": -0.07567485909271367,
-              "dollars": -71.06033861850872
+              "coefficient": -0.07363282758836541,
+              "dollars": -69.56751570738159
             },
             {
               "feature": "state_SD",
               "change": "in SD rather than OH",
-              "coefficient": -0.07541183281476932,
-              "dollars": -70.82254746259888
+              "coefficient": -0.08656992780461582,
+              "dollars": -81.2700106034895
             },
             {
               "feature": "state_WI",
               "change": "in WI rather than OH",
-              "coefficient": 0.12187497951774219,
-              "dollars": 126.3725465012499
+              "coefficient": 0.12837288255625556,
+              "dollars": 134.2373448596124
             }
           ]
         },
         "forest": {
           "cross_validation": {
             "rmse": {
-              "mean": 307.8727963582438,
-              "std": 40.86459037881481
+              "mean": 294.15548515599437,
+              "std": 21.41415740830157
             },
             "mae": {
-              "mean": 169.87055078398757,
-              "std": 5.335419261572764
+              "mean": 172.73947650220722,
+              "std": 4.159163542308074
             },
             "r2": {
-              "mean": 0.6855233987895675,
-              "std": 0.03527755449866746
+              "mean": 0.6898245732651984,
+              "std": 0.02529373026418835
             }
           },
           "evaluation": {
             "held_out_all": {
-              "rmse": 301.23871737170685,
-              "mae": 172.63439688764237,
-              "r2": 0.685423327721217,
-              "rows": 2331
+              "rmse": 387.99425055235196,
+              "mae": 174.33250790917532,
+              "r2": 0.6076053744236534,
+              "rows": 2300
             },
             "held_out_unflagged": {
-              "rmse": 301.2387173717069,
-              "mae": 172.6343968876424,
-              "r2": 0.685423327721217,
-              "rows": 2331
+              "rmse": 387.99425055235196,
+              "mae": 174.33250790917532,
+              "r2": 0.6076053744236533,
+              "rows": 2300
             },
             "chicago_metro": {
-              "rmse": 506.81355384821046,
-              "mae": 322.7727222183829,
-              "r2": 0.5805895741740907,
+              "rmse": 1160.2782108126114,
+              "mae": 413.02224217072506,
+              "r2": 0.36220154795152437,
               "rows": 130
             },
             "outside_chicago_metro": {
-              "rmse": 284.48783033392,
-              "mae": 163.76661756324606,
-              "r2": 0.6748364153738884,
-              "rows": 2201
+              "rmse": 280.9045789891292,
+              "mae": 160.03312290733132,
+              "r2": 0.6779970866618195,
+              "rows": 2170
             },
             "near_campus": {
-              "rmse": 527.1593897007506,
-              "mae": 336.10592479340926,
-              "r2": 0.5410255315407528,
+              "rmse": 1238.1152731449797,
+              "mae": 456.5177724399978,
+              "r2": 0.32434312214553096,
               "rows": 115
             }
           },
           "interval_quantiles": {
             "coverage": 0.8,
             "edges": [
-              6.657741754896975,
-              6.815617249288956,
-              6.991348553865079,
-              7.190440043980063
+              6.661283362863661,
+              6.817923887439246,
+              6.993027909954484,
+              7.195238454626971
             ],
             "limits": [
               [
-                -0.2247864987499353,
-                0.16728652977718067
+                -0.21818043050398073,
+                0.18421094110046085
               ],
               [
-                -0.2199336811183811,
-                0.2045608679302181
+                -0.23377545041732015,
+                0.18704633807661628
               ],
               [
-                -0.24124404667204458,
-                0.23619996116099684
+                -0.24125691253264167,
+                0.26302527289325783
               ],
               [
-                -0.2568198624078421,
-                0.23942031837482317
+                -0.24484854632928316,
+                0.23550093505496072
               ],
               [
-                -0.22011812297276276,
-                0.2985070469823355
+                -0.23700082516435783,
+                0.3077966398951714
               ]
             ]
           },
-          "interval_coverage_held_out": 0.7966537966537967,
-          "interval_median_width": 469.84261012241075,
-          "interval_median_relative_width": 0.48077765341265355,
+          "interval_coverage_held_out": 0.8117391304347826,
+          "interval_median_width": 511.09988894330803,
+          "interval_median_relative_width": 0.48271947391386255,
           "error_by_price": [
             {
-              "band": "$375 to $725",
-              "rows": 483,
-              "mae": 108.96375196338123,
-              "median_percent_error": 0.12833894377629,
-              "coverage": 0.7391304347826086
+              "band": "$325 to $735",
+              "rows": 468,
+              "mae": 121.41705172512677,
+              "median_percent_error": 0.12520794745547195,
+              "coverage": 0.7200854700854701
             },
             {
-              "band": "$725 to $880",
-              "rows": 453,
-              "mae": 87.49674933250087,
-              "median_percent_error": 0.07203286221503581,
-              "coverage": 0.869757174392936
+              "band": "$735 to $895",
+              "rows": 454,
+              "mae": 93.6364509555686,
+              "median_percent_error": 0.07292002416080798,
+              "coverage": 0.8590308370044053
             },
             {
-              "band": "$880 to $1,095",
-              "rows": 463,
-              "mae": 113.87838478616109,
-              "median_percent_error": 0.07995928307989644,
-              "coverage": 0.8682505399568035
+              "band": "$895 to $1,095",
+              "rows": 462,
+              "mae": 103.97830943142361,
+              "median_percent_error": 0.0756239375805376,
+              "coverage": 0.8679653679653679
             },
             {
-              "band": "$1,095 to $1,410",
-              "rows": 467,
-              "mae": 154.05541713925518,
-              "median_percent_error": 0.09157902247987273,
-              "coverage": 0.8394004282655246
+              "band": "$1,095 to $1,415",
+              "rows": 456,
+              "mae": 140.59095384026926,
+              "median_percent_error": 0.08486280408286437,
+              "coverage": 0.8925438596491229
             },
             {
-              "band": "$1,410 to $6,000",
-              "rows": 465,
-              "mae": 398.8724463207173,
-              "median_percent_error": 0.1524296199859615,
-              "coverage": 0.6709677419354839
+              "band": "$1,415 to $15,000",
+              "rows": 460,
+              "mae": 411.9199681335548,
+              "median_percent_error": 0.14517300506400338,
+              "coverage": 0.7217391304347827
             }
           ],
           "coverage_by_predicted_band": [
             {
-              "band": "under $779",
-              "rows": 507,
-              "coverage": 0.8165680473372781
+              "band": "under $782",
+              "rows": 459,
+              "coverage": 0.8104575163398693
             },
             {
-              "band": "$779 to $912",
+              "band": "$782 to $914",
               "rows": 445,
-              "coverage": 0.7932584269662921
+              "coverage": 0.8202247191011236
             },
             {
-              "band": "$912 to $1,087",
-              "rows": 485,
-              "coverage": 0.7835051546391752
+              "band": "$914 to $1,089",
+              "rows": 477,
+              "coverage": 0.8092243186582809
             },
             {
-              "band": "$1,087 to $1,327",
-              "rows": 436,
-              "coverage": 0.8096330275229358
+              "band": "$1,089 to $1,333",
+              "rows": 459,
+              "coverage": 0.8104575163398693
             },
             {
-              "band": "$1,327 and up",
-              "rows": 458,
-              "coverage": 0.7794759825327511
+              "band": "$1,333 and up",
+              "rows": 460,
+              "coverage": 0.808695652173913
             }
           ],
-          "abs_error_vs_prediction_spearman": 0.3553950697367751,
+          "abs_error_vs_prediction_spearman": 0.35911293889190316,
           "permutation_importance": {
-            "Bedrooms": 39.58119676890116,
-            "Bathrooms": 89.9552838242172,
-            "Square footage": 180.8375111291254,
-            "Distance from campus": 121.33696348377202,
-            "Amenity count": 9.803976314938211,
-            "Amenities not listed": 1.1810788268104262,
-            "Pet policy": 5.928631400783513,
-            "Chicago metro": 19.83027643062046,
-            "State": 27.175953721118663,
-            "Amenity: AC": 5.639092418398548,
-            "Amenity: Cable or Satellite": 0.478830029496919,
-            "Amenity: Clubhouse": 1.2281153256780613,
-            "Amenity: Dishwasher": 3.5233160940015638,
-            "Amenity: Fireplace": 0.3029619040183661,
-            "Amenity: Garbage Disposal": 0.1667563834435896,
-            "Amenity: Gym": 3.709313662789748,
-            "Amenity: Internet Access": 0.7640803619367602,
-            "Amenity: Parking": 6.291896224763332,
-            "Amenity: Patio/Deck": 3.595919051761496,
-            "Amenity: Playground": 4.147625331167125,
-            "Amenity: Pool": 6.859440156145683,
-            "Amenity: Refrigerator": 8.474359902836,
-            "Amenity: Storage": 8.143035748919157,
-            "Amenity: Tennis": 0.22213640542752272,
-            "Amenity: Washer Dryer": 3.353981547650676,
-            "Amenity: Wood Floors": 1.3812085654675683
+            "Bedrooms": 35.5894356451584,
+            "Bathrooms": 86.9170851887622,
+            "Square footage": 154.1856228797113,
+            "Distance from campus": 111.20087783181448,
+            "Amenity count": 7.446335197782389,
+            "Amenities not listed": 0.8254720980819684,
+            "Pet policy": 3.8700785504126545,
+            "Chicago metro": 24.26463170524744,
+            "State": 24.387821954370065,
+            "Amenity: AC": 4.275601824962303,
+            "Amenity: Cable or Satellite": 0.6009960530591798,
+            "Amenity: Clubhouse": 0.7094835174257923,
+            "Amenity: Dishwasher": 2.813957286617415,
+            "Amenity: Fireplace": 0.42604979652609243,
+            "Amenity: Garbage Disposal": 0.07175371782852835,
+            "Amenity: Gym": 2.3501211345864474,
+            "Amenity: Internet Access": 0.6856029566692314,
+            "Amenity: Parking": 3.7014426229542323,
+            "Amenity: Patio/Deck": 1.9174673125853474,
+            "Amenity: Playground": 3.61822800247445,
+            "Amenity: Pool": 6.177344724648458,
+            "Amenity: Refrigerator": 5.9442511373726346,
+            "Amenity: Storage": 4.752418268446627,
+            "Amenity: Tennis": 0.10968833602653376,
+            "Amenity: Washer Dryer": 2.7435498245314762,
+            "Amenity: Wood Floors": 0.8992887661247664
           },
           "impurity_importance": {
-            "Bedrooms": 0.05699568762749236,
-            "Bathrooms": 0.09954181301009699,
-            "Square footage": 0.36165719256888473,
-            "Distance from campus": 0.22382006719688372,
-            "Amenity count": 0.028040174268922427,
-            "Amenities not listed": 0.0035054037526967992,
-            "Pet policy": 0.0238097783300091,
-            "Chicago metro": 0.02696123126107393,
-            "State": 0.06296990061339552,
-            "Amenity: AC": 0.009890812080271752,
-            "Amenity: Cable or Satellite": 0.0035821451088125567,
-            "Amenity: Clubhouse": 0.003742168616976859,
-            "Amenity: Dishwasher": 0.007076669153161064,
-            "Amenity: Fireplace": 0.0024909830265697295,
-            "Amenity: Garbage Disposal": 0.0016381592461786484,
-            "Amenity: Gym": 0.01049671234966307,
-            "Amenity: Internet Access": 0.0036001950841959233,
-            "Amenity: Parking": 0.011410276413560702,
-            "Amenity: Patio/Deck": 0.006931944235046756,
-            "Amenity: Playground": 0.008234333510612582,
-            "Amenity: Pool": 0.009788180167768968,
-            "Amenity: Refrigerator": 0.00984788714792353,
-            "Amenity: Storage": 0.009035523618623725,
-            "Amenity: Tennis": 0.00098538578580527,
-            "Amenity: Washer Dryer": 0.01044007983871196,
-            "Amenity: Wood Floors": 0.003507295986661337
+            "Bedrooms": 0.05791454648592964,
+            "Bathrooms": 0.09836556458303788,
+            "Square footage": 0.3617010897823944,
+            "Distance from campus": 0.2227616748632642,
+            "Amenity count": 0.029566620834284272,
+            "Amenities not listed": 0.003887255451354194,
+            "Pet policy": 0.024148544131596675,
+            "Chicago metro": 0.027253976855609235,
+            "State": 0.06303475364099502,
+            "Amenity: AC": 0.009054373906929562,
+            "Amenity: Cable or Satellite": 0.003597447127740767,
+            "Amenity: Clubhouse": 0.0036234666661201223,
+            "Amenity: Dishwasher": 0.006643452498507172,
+            "Amenity: Fireplace": 0.002389049554071625,
+            "Amenity: Garbage Disposal": 0.0019058445426715879,
+            "Amenity: Gym": 0.010746346550073657,
+            "Amenity: Internet Access": 0.0033793109330358517,
+            "Amenity: Parking": 0.010753211306917717,
+            "Amenity: Patio/Deck": 0.006600797069548427,
+            "Amenity: Playground": 0.008640566521874568,
+            "Amenity: Pool": 0.010776891779296173,
+            "Amenity: Refrigerator": 0.00967520407084258,
+            "Amenity: Storage": 0.008543010739139302,
+            "Amenity: Tennis": 0.0013646340369276998,
+            "Amenity: Washer Dryer": 0.009943355050695775,
+            "Amenity: Wood Floors": 0.0037290110171419137
           }
         }
       }
     },
     "including_flagged": {
       "exclude_flagged": false,
-      "train_rows": 9732,
-      "test_rows": 2434,
-      "baseline_value": 1111.5495273325114,
+      "train_rows": 9581,
+      "test_rows": 2396,
+      "baseline_value": 1113.1719027241415,
       "baseline": {
         "held_out_all": {
-          "rmse": 536.5053076464384,
-          "mae": 377.51697624521233,
-          "r2": -2.9349656083255127e-07,
-          "rows": 2434
+          "rmse": 612.830510271373,
+          "mae": 383.43938498025534,
+          "r2": -0.000608075743308012,
+          "rows": 2396
         },
         "held_out_unflagged": {
-          "rmse": 537.1047959529925,
-          "mae": 377.9474401299309,
-          "r2": -5.294952628331906e-05,
-          "rows": 2331
+          "rmse": 619.7325371558385,
+          "mae": 384.7238653494461,
+          "r2": -0.001108309907467575,
+          "rows": 2300
         },
         "chicago_metro": {
-          "rmse": 926.8890424897248,
-          "mae": 635.0153145392406,
-          "r2": -0.5196810748144989,
-          "rows": 146
+          "rmse": 1565.9725798253253,
+          "mae": 816.8773752159946,
+          "r2": -0.2632097354240115,
+          "rows": 144
         },
         "outside_chicago_metro": {
-          "rmse": 501.381638748519,
-          "mae": 361.0857011617647,
-          "r2": -0.0046960380435356885,
-          "rows": 2288
+          "rmse": 492.7168581716285,
+          "mae": 355.7239895122507,
+          "r2": -0.0036305904449989157,
+          "rows": 2252
         },
         "near_campus": {
-          "rmse": 978.4059145591202,
-          "mae": 670.6526131082235,
-          "r2": -0.7059584259527374,
-          "rows": 130
+          "rmse": 1666.0265110309592,
+          "mae": 907.8252023344006,
+          "r2": -0.3356990947848153,
+          "rows": 129
         }
       },
       "models": {
         "linear": {
           "cross_validation": {
             "rmse": {
-              "mean": 385.89567363424885,
-              "std": 23.448388381449625
+              "mean": 380.966793046637,
+              "std": 10.97256733904576
             },
             "mae": {
-              "mean": 250.10995112862128,
-              "std": 3.980532245013817
+              "mean": 251.25763635432813,
+              "std": 3.967697849827022
             },
             "r2": {
-              "mean": 0.4971384179288779,
-              "std": 0.029596034900347016
+              "mean": 0.47890998739781676,
+              "std": 0.014187868826042109
             }
           },
           "evaluation": {
             "held_out_all": {
-              "rmse": 388.56776591662293,
-              "mae": 254.63386498216485,
-              "r2": 0.4754515324470958,
-              "rows": 2434
+              "rmse": 418.1509836299589,
+              "mae": 254.1046482761798,
+              "r2": 0.5341463619894313,
+              "rows": 2396
             },
             "held_out_unflagged": {
-              "rmse": 391.2930093998584,
-              "mae": 255.67947865911302,
-              "r2": 0.4692266453896391,
-              "rows": 2331
+              "rmse": 422.22728775571903,
+              "mae": 255.6447117611872,
+              "r2": 0.5353081397236205,
+              "rows": 2300
             },
             "chicago_metro": {
-              "rmse": 668.559552272594,
-              "mae": 487.3077242699653,
-              "r2": 0.20936296150309996,
-              "rows": 146
+              "rmse": 954.5693846370524,
+              "mae": 550.5967431043232,
+              "r2": 0.5306226159266412,
+              "rows": 144
             },
             "outside_chicago_metro": {
-              "rmse": 363.45237448938116,
-              "mae": 239.786669415723,
-              "r2": 0.4720499203750529,
-              "rows": 2288
+              "rmse": 357.44305899414724,
+              "mae": 235.14600633335004,
+              "r2": 0.4718068280107983,
+              "rows": 2252
             },
             "near_campus": {
-              "rmse": 682.3778337441801,
-              "mae": 486.087624035565,
-              "r2": 0.17018720663751163,
-              "rows": 130
+              "rmse": 1009.8015871047272,
+              "mae": 578.3071804216116,
+              "r2": 0.5092990331915443,
+              "rows": 129
             }
           },
           "interval_quantiles": {
             "coverage": 0.8,
             "edges": [
-              6.676573713038777,
-              6.820815832520568,
-              6.993203060076256,
-              7.174182806171745
+              6.682161672560381,
+              6.825421827232618,
+              6.995247180538999,
+              7.1766454064271805
             ],
             "limits": [
               [
-                -0.2905718077698019,
-                0.315264374873766
+                -0.2985227564800894,
+                0.31488837857309804
               ],
               [
-                -0.3012440348655443,
-                0.38069006489885204
+                -0.30345833055525256,
+                0.37595306950045027
               ],
               [
-                -0.3290714372310388,
-                0.3442562614514624
+                -0.32903380638796526,
+                0.3519285749843859
               ],
               [
-                -0.35973935977113564,
-                0.3794318643121608
+                -0.36532994583686706,
+                0.3742167163177301
               ],
               [
-                -0.38264329405147124,
-                0.4472495110840737
+                -0.38477372949278393,
+                0.4507172685972833
               ]
             ]
           },
-          "interval_coverage_held_out": 0.7962202136400987,
-          "interval_median_width": 680.8596523692529,
-          "interval_median_relative_width": 0.7233968189418726,
+          "interval_coverage_held_out": 0.8138564273789649,
+          "interval_median_width": 697.0549897396932,
+          "interval_median_relative_width": 0.7181181321811039,
           "error_by_price": [
             {
-              "band": "$325 to $720",
+              "band": "$325 to $730",
+              "rows": 482,
+              "mae": 178.47966859759956,
+              "median_percent_error": 0.24523663620384972,
+              "coverage": 0.6929460580912863
+            },
+            {
+              "band": "$730 to $895",
               "rows": 488,
-              "mae": 179.33975223778927,
-              "median_percent_error": 0.25368877350373265,
-              "coverage": 0.6639344262295082
+              "mae": 153.37148669000442,
+              "median_percent_error": 0.1394822095990607,
+              "coverage": 0.9057377049180327
             },
             {
-              "band": "$720 to $879",
-              "rows": 488,
-              "mae": 156.12240090726362,
-              "median_percent_error": 0.13984188007986503,
-              "coverage": 0.8647540983606558
+              "band": "$895 to $1,095",
+              "rows": 481,
+              "mae": 162.71376041008816,
+              "median_percent_error": 0.1368222985149058,
+              "coverage": 0.9251559251559252
             },
             {
-              "band": "$879 to $1,095",
-              "rows": 487,
-              "mae": 173.67146395521942,
-              "median_percent_error": 0.14668505997298015,
-              "coverage": 0.9158110882956879
+              "band": "$1,095 to $1,410",
+              "rows": 466,
+              "mae": 207.14282399892602,
+              "median_percent_error": 0.1379308172468423,
+              "coverage": 0.8798283261802575
             },
             {
-              "band": "$1,095 to $1,402",
-              "rows": 484,
-              "mae": 225.13082212206646,
-              "median_percent_error": 0.15379826951296766,
-              "coverage": 0.8698347107438017
-            },
-            {
-              "band": "$1,402 to $6,000",
-              "rows": 487,
-              "mae": 539.0800323994482,
-              "median_percent_error": 0.239171456386895,
-              "coverage": 0.6673511293634496
+              "band": "$1,410 to $15,000",
+              "rows": 479,
+              "mae": 570.2888867645298,
+              "median_percent_error": 0.25546636933134736,
+              "coverage": 0.6659707724425887
             }
           ],
           "coverage_by_predicted_band": [
             {
-              "band": "under $794",
-              "rows": 487,
-              "coverage": 0.8069815195071869
+              "band": "under $798",
+              "rows": 462,
+              "coverage": 0.8658008658008658
             },
             {
-              "band": "$794 to $917",
-              "rows": 485,
-              "coverage": 0.7896907216494845
+              "band": "$798 to $921",
+              "rows": 483,
+              "coverage": 0.7867494824016563
             },
             {
-              "band": "$917 to $1,089",
-              "rows": 515,
-              "coverage": 0.7786407766990291
+              "band": "$921 to $1,091",
+              "rows": 500,
+              "coverage": 0.794
             },
             {
-              "band": "$1,089 to $1,305",
-              "rows": 448,
-              "coverage": 0.796875
+              "band": "$1,091 to $1,309",
+              "rows": 490,
+              "coverage": 0.8061224489795918
             },
             {
-              "band": "$1,305 and up",
-              "rows": 499,
-              "coverage": 0.8096192384769539
+              "band": "$1,309 and up",
+              "rows": 461,
+              "coverage": 0.8199566160520607
             }
           ],
-          "abs_error_vs_prediction_spearman": 0.32508454246587987,
+          "abs_error_vs_prediction_spearman": 0.342419152386446,
           "permutation_importance": {
-            "Bedrooms": 1.7035609580370192,
-            "Bathrooms": 43.71606617448181,
-            "Square footage": 109.6319823979201,
-            "Distance from campus": 10.889309827989461,
-            "Amenity count": 165.03400864678187,
-            "Amenities not listed": 5.331100631073855,
-            "Pet policy": 0.5992628783942677,
-            "Chicago metro": 45.49581235947767,
-            "State": 25.9506245286316,
-            "Amenity: AC": 12.154978329381539,
-            "Amenity: Cable or Satellite": 4.0593149584699635,
-            "Amenity: Clubhouse": 9.255893882338318,
-            "Amenity: Dishwasher": 2.2231616348658916,
-            "Amenity: Fireplace": 2.487274976035212,
-            "Amenity: Garbage Disposal": 0.8197596499793235,
-            "Amenity: Gym": -0.029801529763790312,
-            "Amenity: Internet Access": 0.27379771401680275,
-            "Amenity: Parking": 0.5156705640920791,
-            "Amenity: Patio/Deck": 8.289583915966796,
-            "Amenity: Playground": 10.954587760473022,
-            "Amenity: Pool": 2.750145916799022,
-            "Amenity: Refrigerator": 17.366456295421937,
-            "Amenity: Storage": 1.3724110995918521,
-            "Amenity: Tennis": 3.94602146356375,
-            "Amenity: Washer Dryer": 3.3821167686307603,
-            "Amenity: Wood Floors": 3.134488414014686
+            "Bedrooms": -3.1852463089091203,
+            "Bathrooms": 70.8705045300551,
+            "Square footage": 129.15005959554824,
+            "Distance from campus": 16.71253283376516,
+            "Amenity count": 118.57999549199155,
+            "Amenities not listed": 3.7600129156828643,
+            "Pet policy": -0.0967233491576394,
+            "Chicago metro": 70.20806811028898,
+            "State": 26.383389592374364,
+            "Amenity: AC": 11.999208195758502,
+            "Amenity: Cable or Satellite": 3.5981242153279367,
+            "Amenity: Clubhouse": 9.173764377449913,
+            "Amenity: Dishwasher": 1.2529905945679958,
+            "Amenity: Fireplace": 2.8387971163130032,
+            "Amenity: Garbage Disposal": 2.454328845727969,
+            "Amenity: Gym": -0.11294373081524327,
+            "Amenity: Internet Access": 0.12281819886933362,
+            "Amenity: Parking": 0.9191713479221335,
+            "Amenity: Patio/Deck": 7.736475239869094,
+            "Amenity: Playground": 11.824467494483212,
+            "Amenity: Pool": 4.155778471799033,
+            "Amenity: Refrigerator": 15.656833864186751,
+            "Amenity: Storage": 1.093366904242589,
+            "Amenity: Tennis": 3.4525694406495746,
+            "Amenity: Washer Dryer": 3.43008090524321,
+            "Amenity: Wood Floors": 2.4907271735016137
           },
           "dollar_effects": [
             {
               "feature": "bedrooms",
               "change": "one more bedroom, same square footage",
-              "coefficient": -0.034085534370891,
-              "dollars": -32.67338773957417
+              "coefficient": -0.03601618158944361,
+              "dollars": -34.52630822448435
             },
             {
               "feature": "bathrooms",
               "change": "one more bathroom",
-              "coefficient": 0.18620583551548237,
-              "dollars": 199.55344380157
+              "coefficient": 0.1844552899447664,
+              "dollars": 197.70169629324084
             },
             {
               "feature": "log_square_feet",
               "change": "10% more square footage",
-              "coefficient": 0.4925841556541888,
-              "dollars": 46.86611111222313
+              "coefficient": 0.49206432243276776,
+              "dollars": 46.86349948405696
             },
             {
               "feature": "distance_from_campus_miles",
               "change": "10 more miles from campus",
-              "coefficient": -0.0003488059890147493,
-              "dollars": -3.3949340841339355
+              "coefficient": -0.000317752080140246,
+              "dollars": -3.096338357182736
             },
             {
               "feature": "amenities_unknown",
               "change": "no amenity list in the listing",
-              "coefficient": 0.09534658366941867,
-              "dollars": 97.53904385598243
+              "coefficient": 0.09404710237368916,
+              "dollars": 96.24481610173524
             },
             {
               "feature": "amenity_count",
               "change": "one more listed amenity of any kind",
-              "coefficient": 0.07656389512675905,
-              "dollars": 77.5818882833296
+              "coefficient": 0.07278342927212214,
+              "dollars": 73.68564822545426
             },
             {
               "feature": "amenity_ac",
               "change": "AC listed, which also adds one to the amenity count",
-              "coefficient": -0.18136998819190706,
-              "dollars": -97.01335928508686
+              "coefficient": -0.17128642323789933,
+              "dollars": -91.55565200854548
             },
             {
               "feature": "amenity_cable_or_satellite",
               "change": "Cable or Satellite listed, which also adds one to the amenity count",
-              "coefficient": -0.08780896205499372,
-              "dollars": -10.90252555374825
+              "coefficient": -0.08866829480386408,
+              "dollars": -15.38114165129845
             },
             {
               "feature": "amenity_clubhouse",
               "change": "Clubhouse listed, which also adds one to the amenity count",
-              "coefficient": -0.13146504307560583,
-              "dollars": -52.0857532881121
+              "coefficient": -0.1260228419031461,
+              "dollars": -50.602686146196206
             },
             {
               "feature": "amenity_dishwasher",
               "change": "Dishwasher listed, which also adds one to the amenity count",
-              "coefficient": -0.04136518974045472,
-              "dollars": 34.92987464888556
+              "coefficient": -0.04261824399239955,
+              "dollars": 29.889769598906373
             },
             {
               "feature": "amenity_fireplace",
               "change": "Fireplace listed, which also adds one to the amenity count",
-              "coefficient": -0.09159509227781719,
-              "dollars": -14.545822788456489
+              "coefficient": -0.08148364026599081,
+              "dollars": -8.4545743100885
             },
             {
               "feature": "amenity_garbage_disposal",
               "change": "Garbage Disposal listed, which also adds one to the amenity count",
-              "coefficient": -0.059141389496648045,
-              "dollars": 17.135783680440355
+              "coefficient": -0.05420105166546089,
+              "dollars": 18.30595789698344
             },
             {
               "feature": "amenity_gym",
               "change": "Gym listed, which also adds one to the amenity count",
-              "coefficient": 0.014689371261908992,
-              "dollars": 93.15777433404561
+              "coefficient": 0.01586082535955678,
+              "dollars": 90.46726229421007
             },
             {
               "feature": "amenity_internet_access",
               "change": "Internet Access listed, which also adds one to the amenity count",
-              "coefficient": -0.011027572181109327,
-              "dollars": 66.0382317690306
+              "coefficient": -0.009283702370566608,
+              "dollars": 63.98577412369567
             },
             {
               "feature": "amenity_parking",
               "change": "Parking listed, which also adds one to the amenity count",
-              "coefficient": 0.023793134827371727,
-              "dollars": 102.92642845338878
+              "coefficient": 0.02645728085036697,
+              "dollars": 101.82812128565557
             },
             {
               "feature": "amenity_patio_deck",
               "change": "Patio/Deck listed, which also adds one to the amenity count",
-              "coefficient": -0.09800311295037328,
-              "dollars": -20.680755629759034
+              "coefficient": -0.08609966125857318,
+              "dollars": -12.910492089253378
             },
             {
               "feature": "amenity_playground",
               "change": "Playground listed, which also adds one to the amenity count",
-              "coefficient": -0.21700800431202788,
-              "dollars": -127.75207463699981
+              "coefficient": -0.21107481155446903,
+              "dollars": -126.05537174694844
             },
             {
               "feature": "amenity_pool",
               "change": "Pool listed, which also adds one to the amenity count",
-              "coefficient": -0.06841512457331866,
-              "dollars": 7.97751059751492
+              "coefficient": -0.0675128678607397,
+              "dollars": 5.157647847928704
             },
             {
               "feature": "amenity_refrigerator",
               "change": "Refrigerator listed, which also adds one to the amenity count",
-              "coefficient": -0.17684005280549744,
-              "dollars": -93.02711463374547
+              "coefficient": -0.1687196361334886,
+              "dollars": -89.28255563232402
             },
             {
               "feature": "amenity_storage",
               "change": "Storage listed, which also adds one to the amenity count",
-              "coefficient": -0.03783151564947278,
-              "dollars": 38.504950537040926
+              "coefficient": -0.04098664974416438,
+              "dollars": 31.532313179287193
             },
             {
               "feature": "amenity_tennis",
               "change": "Tennis listed, which also adds one to the amenity count",
-              "coefficient": -0.13791783371884875,
-              "dollars": -58.02195258032681
+              "coefficient": -0.13595779735828437,
+              "dollars": -59.750948202748646
             },
             {
               "feature": "amenity_washer_dryer",
               "change": "Washer Dryer listed, which also adds one to the amenity count",
-              "coefficient": -0.07011443389775462,
-              "dollars": 6.308546193048715
+              "coefficient": -0.06397666270921516,
+              "dollars": 8.633364378143668
             },
             {
               "feature": "amenity_wood_floors",
               "change": "Wood Floors listed, which also adds one to the amenity count",
-              "coefficient": -0.10615484650259759,
-              "dollars": -28.428490196192566
+              "coefficient": -0.10551840519854261,
+              "dollars": -31.43206576863959
             },
             {
               "feature": "pets_unknown",
               "change": "pet policy not stated",
-              "coefficient": -0.07893850414189306,
-              "dollars": -74.00566795006996
+              "coefficient": -0.0787894311665614,
+              "dollars": -73.94710951350896
             },
             {
               "feature": "pets_none_allowed",
               "change": "explicitly no pets",
-              "coefficient": -0.05698429950917261,
-              "dollars": -54.00632242836731
+              "coefficient": -0.06322252744744515,
+              "dollars": -59.79507310933706
             },
             {
               "feature": "pets_cats",
               "change": "cats allowed",
-              "coefficient": -0.12663036492513022,
-              "dollars": -115.9671992417819
+              "coefficient": -0.1322846174869667,
+              "dollars": -120.93459000719251
             },
             {
               "feature": "pets_dogs",
               "change": "dogs allowed",
-              "coefficient": 0.07141107536256085,
-              "dollars": 72.17207339639074
+              "coefficient": 0.07384327257069215,
+              "dollars": 74.7987402727129
             },
             {
               "feature": "is_chicago_metro",
               "change": "inside the Chicago metro rather than elsewhere in Illinois",
-              "coefficient": 0.40602310585691653,
-              "dollars": 488.31629943299254
+              "coefficient": 0.432970282440489,
+              "dollars": 528.8264709691248
             },
             {
               "feature": "state_IA",
               "change": "in IA rather than OH",
-              "coefficient": -0.07641537110725913,
-              "dollars": -71.72946901805891
+              "coefficient": -0.07740765758498393,
+              "dollars": -72.69981511948285
             },
             {
               "feature": "state_IL",
               "change": "in IL rather than OH",
-              "coefficient": -0.01973226693527283,
-              "dollars": -19.05038846534431
+              "coefficient": -0.033821790955093134,
+              "dollars": -32.45807875100911
             },
             {
               "feature": "state_IN",
               "change": "in IN rather than OH",
-              "coefficient": -0.09202846184074112,
-              "dollars": -85.72279002005665
+              "coefficient": -0.09380694745833404,
+              "dollars": -87.39249267299574
             },
             {
               "feature": "state_KS",
               "change": "in KS rather than OH",
-              "coefficient": -0.12528848982869342,
-              "dollars": -114.81371077378118
+              "coefficient": -0.12190585433048154,
+              "dollars": -112.01385561622861
             },
             {
               "feature": "state_MI",
               "change": "in MI rather than OH",
-              "coefficient": 0.10720648241396286,
-              "dollars": 110.33497756843992
+              "coefficient": 0.10474804589210221,
+              "dollars": 107.78045836606984
             },
             {
               "feature": "state_MN",
               "change": "in MN rather than OH",
-              "coefficient": 0.328639810489937,
-              "dollars": 379.3504984905311
+              "coefficient": 0.32470711791085144,
+              "dollars": 374.4183392077596
             },
             {
               "feature": "state_MO",
               "change": "in MO rather than OH",
-              "coefficient": -0.015527781441221526,
-              "dollars": -15.02265084182271
+              "coefficient": -0.007044558681727856,
+              "dollars": -6.85132864648144
             },
             {
               "feature": "state_ND",
               "change": "in ND rather than OH",
-              "coefficient": -0.02968726477099588,
-              "dollars": -28.519653321875392
+              "coefficient": -0.03936910768253439,
+              "dollars": -37.67771376429389
             },
             {
               "feature": "state_NE",
               "change": "in NE rather than OH",
-              "coefficient": -0.07195937951145318,
-              "dollars": -67.69552218145174
+              "coefficient": -0.06930576914252612,
+              "dollars": -65.35165098326407
             },
             {
               "feature": "state_SD",
               "change": "in SD rather than OH",
-              "coefficient": -0.0907408513993134,
-              "dollars": -84.57700989824153
+              "coefficient": -0.1023390708789446,
+              "dollars": -94.94194935174396
             },
             {
               "feature": "state_WI",
               "change": "in WI rather than OH",
-              "coefficient": 0.1217526878804388,
-              "dollars": 126.2378660845693
+              "coefficient": 0.1295134589324955,
+              "dollars": 134.9558449667804
             }
           ]
         },
         "forest": {
           "cross_validation": {
             "rmse": {
-              "mean": 306.4493092751559,
-              "std": 42.38321248113462
+              "mean": 293.2183345867278,
+              "std": 16.85083689934239
             },
             "mae": {
-              "mean": 169.32579932294985,
-              "std": 4.836785025573204
+              "mean": 172.86853553561798,
+              "std": 5.349899171457584
             },
             "r2": {
-              "mean": 0.6855272485352687,
-              "std": 0.03871442151049387
+              "mean": 0.6917478314969344,
+              "std": 0.016588281608178452
             }
           },
           "evaluation": {
             "held_out_all": {
-              "rmse": 304.29623312170276,
-              "mae": 173.28609089747098,
-              "r2": 0.6783043159024702,
-              "rows": 2434
+              "rmse": 379.54712106338326,
+              "mae": 172.30252249155623,
+              "r2": 0.6161914465469903,
+              "rows": 2396
             },
             "held_out_unflagged": {
-              "rmse": 299.6838938612549,
-              "mae": 172.17006188007394,
-              "r2": 0.6886622802220923,
-              "rows": 2331
+              "rmse": 384.9710113148341,
+              "mae": 173.3030841242623,
+              "r2": 0.6136966039169729,
+              "rows": 2300
             },
             "chicago_metro": {
-              "rmse": 498.51596855154736,
-              "mae": 321.59048183790037,
-              "r2": 0.560402607697972,
-              "rows": 146
+              "rmse": 1095.3119532156654,
+              "mae": 388.6074654031804,
+              "r2": 0.38200805872249344,
+              "rows": 144
             },
             "outside_chicago_metro": {
-              "rmse": 287.48327082989306,
-              "mae": 163.82261140564285,
-              "r2": 0.6696890329590521,
-              "rows": 2288
+              "rmse": 276.68443064403397,
+              "mae": 158.47130056470286,
+              "r2": 0.6835183824650244,
+              "rows": 2252
             },
             "near_campus": {
-              "rmse": 518.0585666747716,
-              "mae": 336.1922178123238,
-              "r2": 0.5217136090329153,
-              "rows": 130
+              "rmse": 1161.008241016852,
+              "mae": 422.3276358406909,
+              "r2": 0.35134253474387844,
+              "rows": 129
             }
           },
           "interval_quantiles": {
             "coverage": 0.8,
             "edges": [
-              6.654705117979198,
-              6.810793934459432,
-              6.9861602985344895,
-              7.180585560023585
+              6.656996003092645,
+              6.813425013386538,
+              6.985552978733211,
+              7.190474240918096
             ],
             "limits": [
               [
-                -0.21841460807117186,
-                0.17015531361237796
+                -0.23188889455389242,
+                0.1721105267660028
               ],
               [
-                -0.2270804093653749,
-                0.2072328887782593
+                -0.2314985190990777,
+                0.20955463507997463
               ],
               [
-                -0.24487947556693704,
-                0.24586449389145848
+                -0.23339510193553809,
+                0.270926192737039
               ],
               [
-                -0.24255297787776717,
-                0.2308928782033175
+                -0.24833982587164055,
+                0.2395722757683858
               ],
               [
-                -0.22340953196819877,
-                0.3097181589753656
+                -0.2363948238881891,
+                0.30527520264117813
               ]
             ]
           },
-          "interval_coverage_held_out": 0.7990961380443714,
-          "interval_median_width": 480.8485708541645,
-          "interval_median_relative_width": 0.4751021094324324,
+          "interval_coverage_held_out": 0.8209515859766278,
+          "interval_median_width": 515.4653621476643,
+          "interval_median_relative_width": 0.490610720691443,
           "error_by_price": [
             {
-              "band": "$325 to $720",
+              "band": "$325 to $730",
+              "rows": 482,
+              "mae": 119.40455674138573,
+              "median_percent_error": 0.12805881206910597,
+              "coverage": 0.7385892116182573
+            },
+            {
+              "band": "$730 to $895",
               "rows": 488,
-              "mae": 111.07507729439723,
-              "median_percent_error": 0.12931805223689224,
-              "coverage": 0.7274590163934426
+              "mae": 93.7089912257871,
+              "median_percent_error": 0.07042318192041896,
+              "coverage": 0.8647540983606558
             },
             {
-              "band": "$720 to $879",
-              "rows": 488,
-              "mae": 85.8413813492022,
-              "median_percent_error": 0.0645612436115924,
-              "coverage": 0.8852459016393442
+              "band": "$895 to $1,095",
+              "rows": 481,
+              "mae": 103.07516190765918,
+              "median_percent_error": 0.07080320002319036,
+              "coverage": 0.8877338877338877
             },
             {
-              "band": "$879 to $1,095",
-              "rows": 487,
-              "mae": 112.86608883758953,
-              "median_percent_error": 0.0841369774936799,
-              "coverage": 0.86652977412731
+              "band": "$1,095 to $1,410",
+              "rows": 466,
+              "mae": 140.1568278685173,
+              "median_percent_error": 0.08678391528449587,
+              "coverage": 0.8905579399141631
             },
             {
-              "band": "$1,095 to $1,402",
-              "rows": 484,
-              "mae": 154.86828269185816,
-              "median_percent_error": 0.09112910505053068,
-              "coverage": 0.8367768595041323
-            },
-            {
-              "band": "$1,402 to $6,000",
-              "rows": 487,
-              "mae": 401.97346886982007,
-              "median_percent_error": 0.15496818839048812,
-              "coverage": 0.6796714579055442
+              "band": "$1,410 to $15,000",
+              "rows": 479,
+              "mae": 406.39170179107214,
+              "median_percent_error": 0.14675296134986796,
+              "coverage": 0.7244258872651357
             }
           ],
           "coverage_by_predicted_band": [
             {
-              "band": "under $776",
-              "rows": 524,
-              "coverage": 0.8225190839694656
+              "band": "under $778",
+              "rows": 476,
+              "coverage": 0.8466386554621849
             },
             {
-              "band": "$776 to $908",
-              "rows": 467,
-              "coverage": 0.7880085653104925
+              "band": "$778 to $910",
+              "rows": 459,
+              "coverage": 0.8300653594771242
             },
             {
-              "band": "$908 to $1,082",
-              "rows": 492,
-              "coverage": 0.7926829268292683
+              "band": "$910 to $1,081",
+              "rows": 496,
+              "coverage": 0.8165322580645161
             },
             {
-              "band": "$1,082 to $1,314",
-              "rows": 468,
-              "coverage": 0.7884615384615384
-            },
-            {
-              "band": "$1,314 and up",
+              "band": "$1,081 to $1,327",
               "rows": 483,
-              "coverage": 0.8012422360248447
+              "coverage": 0.8115942028985508
+            },
+            {
+              "band": "$1,327 and up",
+              "rows": 482,
+              "coverage": 0.8008298755186722
             }
           ],
-          "abs_error_vs_prediction_spearman": 0.36985961496002545,
+          "abs_error_vs_prediction_spearman": 0.3793294629981507,
           "permutation_importance": {
-            "Bedrooms": 40.60012755168334,
-            "Bathrooms": 85.37510079705005,
-            "Square footage": 180.9619663465192,
-            "Distance from campus": 118.82967584773655,
-            "Amenity count": 9.54660433017367,
-            "Amenities not listed": 1.0816421529296008,
-            "Pet policy": 6.808266319526785,
-            "Chicago metro": 17.458432131467863,
-            "State": 28.963928374464455,
-            "Amenity: AC": 5.437147434325186,
-            "Amenity: Cable or Satellite": 0.7273664156591166,
-            "Amenity: Clubhouse": 1.1310777896198374,
-            "Amenity: Dishwasher": 4.629592735262316,
-            "Amenity: Fireplace": 0.39032621562903386,
-            "Amenity: Garbage Disposal": 0.1309534075588658,
-            "Amenity: Gym": 3.6877410728307494,
-            "Amenity: Internet Access": 0.9024340286029542,
-            "Amenity: Parking": 7.103969205406122,
-            "Amenity: Patio/Deck": 3.7793830661003085,
-            "Amenity: Playground": 4.44118511791562,
-            "Amenity: Pool": 7.07385047997293,
-            "Amenity: Refrigerator": 10.01945430970768,
-            "Amenity: Storage": 6.085838912116367,
-            "Amenity: Tennis": 0.1719193258479322,
-            "Amenity: Washer Dryer": 3.9033492613244336,
-            "Amenity: Wood Floors": 0.5540171956206791
+            "Bedrooms": 34.62417663340544,
+            "Bathrooms": 93.28557539318292,
+            "Square footage": 162.98101002095422,
+            "Distance from campus": 113.4760290207569,
+            "Amenity count": 6.791041233907833,
+            "Amenities not listed": 0.4054198770599783,
+            "Pet policy": 6.646054490735798,
+            "Chicago metro": 27.170179857340646,
+            "State": 25.754916201027005,
+            "Amenity: AC": 4.365291091084498,
+            "Amenity: Cable or Satellite": 0.8528284211095638,
+            "Amenity: Clubhouse": 0.7989731271611049,
+            "Amenity: Dishwasher": 3.3544863224018284,
+            "Amenity: Fireplace": 0.34150836113988137,
+            "Amenity: Garbage Disposal": 0.1359476051633351,
+            "Amenity: Gym": 2.912308585596145,
+            "Amenity: Internet Access": 0.6305347672111224,
+            "Amenity: Parking": 3.1884357756960298,
+            "Amenity: Patio/Deck": 2.6669622786350486,
+            "Amenity: Playground": 3.5040596014177368,
+            "Amenity: Pool": 5.345568976371112,
+            "Amenity: Refrigerator": 7.4472722714570185,
+            "Amenity: Storage": 4.2661281428807225,
+            "Amenity: Tennis": 0.11760568657873591,
+            "Amenity: Washer Dryer": 2.6095941091078316,
+            "Amenity: Wood Floors": 0.9779249200127083
           },
           "impurity_importance": {
-            "Bedrooms": 0.05459017753688367,
-            "Bathrooms": 0.10387435058793637,
-            "Square footage": 0.3510338418548358,
-            "Distance from campus": 0.22548100918765868,
-            "Amenity count": 0.02802878259070495,
-            "Amenities not listed": 0.003644042966127354,
-            "Pet policy": 0.024638041887330313,
-            "Chicago metro": 0.026733005983102423,
-            "State": 0.06940368729546502,
-            "Amenity: AC": 0.00978294775836387,
-            "Amenity: Cable or Satellite": 0.003734087274013672,
-            "Amenity: Clubhouse": 0.003686423161435353,
-            "Amenity: Dishwasher": 0.007296479438138748,
-            "Amenity: Fireplace": 0.0024451247854369255,
-            "Amenity: Garbage Disposal": 0.0016777723185766084,
-            "Amenity: Gym": 0.01005766694167571,
-            "Amenity: Internet Access": 0.003864886774932421,
-            "Amenity: Parking": 0.01098217349996612,
-            "Amenity: Patio/Deck": 0.006854399104641495,
-            "Amenity: Playground": 0.008057871832460888,
-            "Amenity: Pool": 0.010622979384461356,
-            "Amenity: Refrigerator": 0.009764546552851328,
-            "Amenity: Storage": 0.008688035473956844,
-            "Amenity: Tennis": 0.000972487169253487,
-            "Amenity: Washer Dryer": 0.01049586964257218,
-            "Amenity: Wood Floors": 0.003589308997218558
+            "Bedrooms": 0.05495951963517597,
+            "Bathrooms": 0.09701651122503968,
+            "Square footage": 0.3557263260270815,
+            "Distance from campus": 0.22732939337479574,
+            "Amenity count": 0.02875252521636883,
+            "Amenities not listed": 0.003776657742578291,
+            "Pet policy": 0.024998721625451727,
+            "Chicago metro": 0.027660827827371105,
+            "State": 0.06848989695023733,
+            "Amenity: AC": 0.00940328261398302,
+            "Amenity: Cable or Satellite": 0.0035005269426599175,
+            "Amenity: Clubhouse": 0.0036251107176871315,
+            "Amenity: Dishwasher": 0.006756201468372015,
+            "Amenity: Fireplace": 0.002342586668191376,
+            "Amenity: Garbage Disposal": 0.0018428387637908711,
+            "Amenity: Gym": 0.010053313329218787,
+            "Amenity: Internet Access": 0.0035587552213409567,
+            "Amenity: Parking": 0.010472014659773592,
+            "Amenity: Patio/Deck": 0.006654461298652967,
+            "Amenity: Playground": 0.007747820445318438,
+            "Amenity: Pool": 0.011154547480338166,
+            "Amenity: Refrigerator": 0.010276286571636413,
+            "Amenity: Storage": 0.008481623718032991,
+            "Amenity: Tennis": 0.001303449892572125,
+            "Amenity: Washer Dryer": 0.010405028483681019,
+            "Amenity: Wood Floors": 0.003711772100650223
           }
         }
       }
     }
   },
   "chicago_transfer": {
-    "train_rows": 8833,
-    "chicago_rows": 664,
+    "train_rows": 8686,
+    "chicago_rows": 655,
     "baseline": {
-      "rmse": 1130.2253826154147,
-      "mae": 684.4390828342239,
-      "r2": -0.38631308596173386,
-      "rows": 664
+      "rmse": 1135.9177078785217,
+      "mae": 689.8667356261634,
+      "r2": -0.3923625586877795,
+      "rows": 655
     },
     "illinois_baseline": {
-      "rmse": 1123.2197249546728,
-      "mae": 677.2514405447879,
-      "r2": -0.36918033490819635,
-      "rows": 664
+      "rmse": 1137.5984518148593,
+      "mae": 691.6181297709924,
+      "r2": -0.3964859845950661,
+      "rows": 655
     },
     "models": {
       "linear": {
-        "rmse": 978.6111492166431,
-        "mae": 658.9250737200041,
-        "r2": -0.03932536973481615,
-        "rows": 664
+        "rmse": 1001.9681155269409,
+        "mae": 681.8563022216761,
+        "r2": -0.08334404424667885,
+        "rows": 655
       },
       "forest": {
-        "rmse": 1054.0844570076194,
-        "mae": 680.4340224244716,
-        "r2": -0.20581873920674143,
-        "rows": 664
+        "rmse": 1074.7473601186475,
+        "mae": 695.5045336495255,
+        "r2": -0.24643998025501768,
+        "rows": 655
       }
     }
   },

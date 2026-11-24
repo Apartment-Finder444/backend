@@ -1,14 +1,14 @@
 Rent model results
 ==================
-Midwest listings with price, bedrooms, bathrooms and square footage: 12,166
-Flagged rows among them: 468
-Chicago metro rows: 730
+Midwest listings with price, bedrooms, bathrooms and square footage: 11,977
+Flagged rows among them: 466
+Chicago metro rows: 721
 Hold-out split: 20% stratified on the Chicago metro indicator, random_state=555
 
 Engineered columns
 ------------------
 Median price per square foot: $1.09
-Median cost per bedroom (studios counted as one): $612
+Median cost per bedroom (studios counted as one): $615
 Median distance from campus: 294 miles
 Median amenity count where amenities are listed: 3
 Price per square foot and cost per bedroom are computed from rent itself, so they are reported and used in
@@ -16,185 +16,185 @@ scoring but are not model predictors; using them to predict rent would leak the 
 
 Skew check
 ----------
-price: skew 3.76 raw, 0.56 after log; log applied
-square_feet: skew 5.28 raw, 0.23 after log; log applied
-distance_from_campus_miles: skew 0.68 raw, -2.22 after log1p; left as is
+price: skew 3.76 raw, 0.55 after log; log applied
+square_feet: skew 5.30 raw, 0.23 after log; log applied
+distance_from_campus_miles: skew 0.67 raw, -2.22 after log1p; left as is
 
 Models excluding flagged rows
 -----------------------------
-Training rows 9,367, held-out rows 2,331
+Training rows 9,211, held-out rows 2,300
 
 Held-out set
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $537  $379  -0.000  2331
-Multiple linear regression  $391  $254  0.469   2331
-Random forest               $301  $173  0.685   2331
+Baseline (mean rent)        $620  $386  -0.001  2300
+Multiple linear regression  $419  $255  0.542   2300
+Random forest               $388  $174  0.608   2300
 
 Held-out unflagged rows (same rows for both variants)
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $537  $379  -0.000  2331
-Multiple linear regression  $391  $254  0.469   2331
-Random forest               $301  $173  0.685   2331
+Baseline (mean rent)        $620  $386  -0.001  2300
+Multiple linear regression  $419  $255  0.542   2300
+Random forest               $388  $174  0.608   2300
 
 Held-out Chicago metro rows
-Model                       RMSE  MAE   R2      Rows
---------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $969  $668  -0.533  130 
-Multiple linear regression  $703  $518  0.193   130 
-Random forest               $507  $323  0.581   130 
+Model                       RMSE    MAE   R2      Rows
+--------------------------  ------  ----  ------  ----
+Baseline (mean rent)        $1,640  $865  -0.274  130 
+Multiple linear regression  $976    $588  0.548   130 
+Random forest               $1,160  $413  0.362   130 
 
 Held-out rows outside the Chicago metro
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $500  $362  -0.005  2201
-Multiple linear regression  $365  $239  0.465   2201
-Random forest               $284  $164  0.675   2201
+Baseline (mean rent)        $496  $357  -0.003  2170
+Multiple linear regression  $359  $235  0.473   2170
+Random forest               $281  $160  0.678   2170
 
 Held-out rows within 25 miles of campus
 Model                       RMSE    MAE   R2      Rows
 --------------------------  ------  ----  ------  ----
-Baseline (mean rent)        $1,026  $708  -0.738  115 
-Multiple linear regression  $718    $515  0.148   115 
-Random forest               $527    $336  0.541   115 
+Baseline (mean rent)        $1,756  $972  -0.358  115 
+Multiple linear regression  $1,039  $625  0.524   115 
+Random forest               $1,238  $457  0.324   115 
 
 5-fold cross validation on the training set (mean +/- std across folds)
 Model                       RMSE         MAE         R2             
 --------------------------  -----------  ----------  ---------------
-Multiple linear regression  $384 +/- 26  $248 +/- 9  0.508 +/- 0.035
-Random forest               $308 +/- 41  $170 +/- 5  0.686 +/- 0.035
+Multiple linear regression  $380 +/- 19  $250 +/- 9  0.483 +/- 0.024
+Random forest               $294 +/- 21  $173 +/- 4  0.690 +/- 0.025
 
 80% prediction interval from out-of-fold residuals
-Multiple linear regression: held-out coverage 79.2%, median width $682 (71% of the estimate)
-Random forest: held-out coverage 79.7%, median width $470 (48% of the estimate)
+Multiple linear regression: held-out coverage 80.9%, median width $687 (69% of the estimate)
+Random forest: held-out coverage 81.2%, median width $511 (48% of the estimate)
 
 Error by actual rent band (held-out)
-Multiple linear regression (rank correlation of absolute error with predicted rent: 0.32)
-Actual rent band  Rows  MAE   Median % error  Interval coverage
-----------------  ----  ----  --------------  -----------------
-$375 to $725      483   $177  25.6%           64.6%            
-$725 to $880      453   $157  14.3%           86.8%            
-$880 to $1,095    463   $173  14.8%           91.8%            
-$1,095 to $1,410  467   $224  15.4%           87.4%            
-$1,410 to $6,000  465   $541  23.6%           66.2%            
+Multiple linear regression (rank correlation of absolute error with predicted rent: 0.34)
+Actual rent band   Rows  MAE   Median % error  Interval coverage
+-----------------  ----  ----  --------------  -----------------
+$325 to $735       468   $177  24.0%           68.4%            
+$735 to $895       454   $153  14.3%           91.0%            
+$895 to $1,095     462   $163  14.1%           92.9%            
+$1,095 to $1,415   456   $205  13.5%           87.3%            
+$1,415 to $15,000  460   $576  25.6%           65.2%            
 Predicted rent band  Rows  Interval coverage
 -------------------  ----  -----------------
-under $793           448   81.7%            
-$793 to $922         481   76.5%            
-$922 to $1,093       485   78.8%            
-$1,093 to $1,311     443   78.1%            
-$1,311 and up        474   81.0%            
+under $799           443   86.0%            
+$799 to $925         465   77.4%            
+$925 to $1,096       477   79.7%            
+$1,096 to $1,315     474   80.2%            
+$1,315 and up        441   81.4%            
 
 Random forest (rank correlation of absolute error with predicted rent: 0.36)
-Actual rent band  Rows  MAE   Median % error  Interval coverage
-----------------  ----  ----  --------------  -----------------
-$375 to $725      483   $109  12.8%           73.9%            
-$725 to $880      453   $87   7.2%            87.0%            
-$880 to $1,095    463   $114  8.0%            86.8%            
-$1,095 to $1,410  467   $154  9.2%            83.9%            
-$1,410 to $6,000  465   $399  15.2%           67.1%            
+Actual rent band   Rows  MAE   Median % error  Interval coverage
+-----------------  ----  ----  --------------  -----------------
+$325 to $735       468   $121  12.5%           72.0%            
+$735 to $895       454   $94   7.3%            85.9%            
+$895 to $1,095     462   $104  7.6%            86.8%            
+$1,095 to $1,415   456   $141  8.5%            89.3%            
+$1,415 to $15,000  460   $412  14.5%           72.2%            
 Predicted rent band  Rows  Interval coverage
 -------------------  ----  -----------------
-under $779           507   81.7%            
-$779 to $912         445   79.3%            
-$912 to $1,087       485   78.4%            
-$1,087 to $1,327     436   81.0%            
-$1,327 and up        458   77.9%            
+under $782           459   81.0%            
+$782 to $914         445   82.0%            
+$914 to $1,089       477   80.9%            
+$1,089 to $1,333     459   81.0%            
+$1,333 and up        460   80.9%            
 
 
 Models including flagged rows
 -----------------------------
-Training rows 9,732, held-out rows 2,434
+Training rows 9,581, held-out rows 2,396
 
 Held-out set
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $537  $378  -0.000  2434
-Multiple linear regression  $389  $255  0.475   2434
-Random forest               $304  $173  0.678   2434
+Baseline (mean rent)        $613  $383  -0.001  2396
+Multiple linear regression  $418  $254  0.534   2396
+Random forest               $380  $172  0.616   2396
 
 Held-out unflagged rows (same rows for both variants)
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $537  $378  -0.000  2331
-Multiple linear regression  $391  $256  0.469   2331
-Random forest               $300  $172  0.689   2331
+Baseline (mean rent)        $620  $385  -0.001  2300
+Multiple linear regression  $422  $256  0.535   2300
+Random forest               $385  $173  0.614   2300
 
 Held-out Chicago metro rows
-Model                       RMSE  MAE   R2      Rows
---------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $927  $635  -0.520  146 
-Multiple linear regression  $669  $487  0.209   146 
-Random forest               $499  $322  0.560   146 
+Model                       RMSE    MAE   R2      Rows
+--------------------------  ------  ----  ------  ----
+Baseline (mean rent)        $1,566  $817  -0.263  144 
+Multiple linear regression  $955    $551  0.531   144 
+Random forest               $1,095  $389  0.382   144 
 
 Held-out rows outside the Chicago metro
 Model                       RMSE  MAE   R2      Rows
 --------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $501  $361  -0.005  2288
-Multiple linear regression  $363  $240  0.472   2288
-Random forest               $287  $164  0.670   2288
+Baseline (mean rent)        $493  $356  -0.004  2252
+Multiple linear regression  $357  $235  0.472   2252
+Random forest               $277  $158  0.684   2252
 
 Held-out rows within 25 miles of campus
-Model                       RMSE  MAE   R2      Rows
---------------------------  ----  ----  ------  ----
-Baseline (mean rent)        $978  $671  -0.706  130 
-Multiple linear regression  $682  $486  0.170   130 
-Random forest               $518  $336  0.522   130 
+Model                       RMSE    MAE   R2      Rows
+--------------------------  ------  ----  ------  ----
+Baseline (mean rent)        $1,666  $908  -0.336  129 
+Multiple linear regression  $1,010  $578  0.509   129 
+Random forest               $1,161  $422  0.351   129 
 
 5-fold cross validation on the training set (mean +/- std across folds)
 Model                       RMSE         MAE         R2             
 --------------------------  -----------  ----------  ---------------
-Multiple linear regression  $386 +/- 23  $250 +/- 4  0.497 +/- 0.030
-Random forest               $306 +/- 42  $169 +/- 5  0.686 +/- 0.039
+Multiple linear regression  $381 +/- 11  $251 +/- 4  0.479 +/- 0.014
+Random forest               $293 +/- 17  $173 +/- 5  0.692 +/- 0.017
 
 80% prediction interval from out-of-fold residuals
-Multiple linear regression: held-out coverage 79.6%, median width $681 (72% of the estimate)
-Random forest: held-out coverage 79.9%, median width $481 (48% of the estimate)
+Multiple linear regression: held-out coverage 81.4%, median width $697 (72% of the estimate)
+Random forest: held-out coverage 82.1%, median width $515 (49% of the estimate)
 
 Error by actual rent band (held-out)
-Multiple linear regression (rank correlation of absolute error with predicted rent: 0.33)
-Actual rent band  Rows  MAE   Median % error  Interval coverage
-----------------  ----  ----  --------------  -----------------
-$325 to $720      488   $179  25.4%           66.4%            
-$720 to $879      488   $156  14.0%           86.5%            
-$879 to $1,095    487   $174  14.7%           91.6%            
-$1,095 to $1,402  484   $225  15.4%           87.0%            
-$1,402 to $6,000  487   $539  23.9%           66.7%            
+Multiple linear regression (rank correlation of absolute error with predicted rent: 0.34)
+Actual rent band   Rows  MAE   Median % error  Interval coverage
+-----------------  ----  ----  --------------  -----------------
+$325 to $730       482   $178  24.5%           69.3%            
+$730 to $895       488   $153  13.9%           90.6%            
+$895 to $1,095     481   $163  13.7%           92.5%            
+$1,095 to $1,410   466   $207  13.8%           88.0%            
+$1,410 to $15,000  479   $570  25.5%           66.6%            
 Predicted rent band  Rows  Interval coverage
 -------------------  ----  -----------------
-under $794           487   80.7%            
-$794 to $917         485   79.0%            
-$917 to $1,089       515   77.9%            
-$1,089 to $1,305     448   79.7%            
-$1,305 and up        499   81.0%            
+under $798           462   86.6%            
+$798 to $921         483   78.7%            
+$921 to $1,091       500   79.4%            
+$1,091 to $1,309     490   80.6%            
+$1,309 and up        461   82.0%            
 
-Random forest (rank correlation of absolute error with predicted rent: 0.37)
-Actual rent band  Rows  MAE   Median % error  Interval coverage
-----------------  ----  ----  --------------  -----------------
-$325 to $720      488   $111  12.9%           72.7%            
-$720 to $879      488   $86   6.5%            88.5%            
-$879 to $1,095    487   $113  8.4%            86.7%            
-$1,095 to $1,402  484   $155  9.1%            83.7%            
-$1,402 to $6,000  487   $402  15.5%           68.0%            
+Random forest (rank correlation of absolute error with predicted rent: 0.38)
+Actual rent band   Rows  MAE   Median % error  Interval coverage
+-----------------  ----  ----  --------------  -----------------
+$325 to $730       482   $119  12.8%           73.9%            
+$730 to $895       488   $94   7.0%            86.5%            
+$895 to $1,095     481   $103  7.1%            88.8%            
+$1,095 to $1,410   466   $140  8.7%            89.1%            
+$1,410 to $15,000  479   $406  14.7%           72.4%            
 Predicted rent band  Rows  Interval coverage
 -------------------  ----  -----------------
-under $776           524   82.3%            
-$776 to $908         467   78.8%            
-$908 to $1,082       492   79.3%            
-$1,082 to $1,314     468   78.8%            
-$1,314 and up        483   80.1%            
+under $778           476   84.7%            
+$778 to $910         459   83.0%            
+$910 to $1,081       496   81.7%            
+$1,081 to $1,327     483   81.2%            
+$1,327 and up        482   80.1%            
 
 Chicago metro fully held out
 ----------------------------
-Trained on 8,833 non-Chicago training rows, tested on all 664 Chicago metro rows
+Trained on 8,686 non-Chicago training rows, tested on all 655 Chicago metro rows
 
 Model                          RMSE    MAE   R2    
 -----------------------------  ------  ----  ------
-Baseline (Midwest mean rent)   $1,130  $684  -0.386
-Baseline (Illinois mean rent)  $1,123  $677  -0.369
-Multiple linear regression     $979    $659  -0.039
-Random forest                  $1,054  $680  -0.206
+Baseline (Midwest mean rent)   $1,136  $690  -0.392
+Baseline (Illinois mean rent)  $1,138  $692  -0.396
+Multiple linear regression     $1,002  $682  -0.083
+Random forest                  $1,075  $696  -0.246
 
 What drives rent (models excluding flagged rows)
 ------------------------------------------------
@@ -202,78 +202,78 @@ Linear effect: dollar change at the median rent for the stated change, other fea
 Permutation importance: increase in held-out RMSE, in dollars, when the feature is shuffled.
 Feature                      Linear $ effect  Linear perm.  Forest perm.  Forest impurity
 ---------------------------  ---------------  ------------  ------------  ---------------
-Square footage               $54              $120          $181          36.2%          
-Distance from campus         $-3              $9            $121          22.4%          
-Bathrooms                    $195             $42           $90           10.0%          
-Bedrooms                     $-53             $6            $40           5.7%           
-State                        see note         $23           $27           6.3%           
-Chicago metro                $462             $42           $20           2.7%           
-Amenity count                $80              $162          $10           2.8%           
-Amenity: Refrigerator        $-93             $16           $8            1.0%           
-Amenity: Storage             $37              $1            $8            0.9%           
-Amenity: Pool                $4               $3            $7            1.0%           
-Amenity: Parking             $98              $0            $6            1.1%           
-Pet policy                   see note         $0            $6            2.4%           
-Amenity: AC                  $-91             $11           $6            1.0%           
-Amenity: Playground          $-121            $10           $4            0.8%           
-Amenity: Gym                 $93              $-0           $4            1.0%           
-Amenity: Patio/Deck          $-21             $10           $4            0.7%           
-Amenity: Dishwasher          $34              $1            $4            0.7%           
-Amenity: Washer Dryer        $5               $3            $3            1.0%           
-Amenity: Wood Floors         $-24             $3            $1            0.4%           
-Amenity: Clubhouse           $-56             $10           $1            0.4%           
-Amenities not listed         $84              $5            $1            0.4%           
-Amenity: Internet Access     $59              $1            $1            0.4%           
-Amenity: Cable or Satellite  $-11             $3            $0            0.4%           
-Amenity: Fireplace           $-18             $3            $0            0.2%           
-Amenity: Tennis              $-54             $4            $0            0.1%           
-Amenity: Garbage Disposal    $8               $1            $0            0.2%           
+Square footage               $54              $153          $154          36.2%          
+Distance from campus         $-3              $15           $111          22.3%          
+Bathrooms                    $193             $67           $87           9.8%           
+Bedrooms                     $-56             $-4           $36           5.8%           
+State                        see note         $20           $24           6.3%           
+Chicago metro                $503             $67           $24           2.7%           
+Amenity count                $76              $137          $7            3.0%           
+Amenity: Pool                $2               $7            $6            1.1%           
+Amenity: Refrigerator        $-89             $12           $6            1.0%           
+Amenity: Storage             $30              $2            $5            0.9%           
+Amenity: AC                  $-85             $11           $4            0.9%           
+Pet policy                   see note         $-1           $4            2.4%           
+Amenity: Parking             $98              $1            $4            1.1%           
+Amenity: Playground          $-119            $9            $4            0.9%           
+Amenity: Dishwasher          $29              $3            $3            0.7%           
+Amenity: Washer Dryer        $7               $5            $3            1.0%           
+Amenity: Gym                 $91              $-1           $2            1.1%           
+Amenity: Patio/Deck          $-14             $9            $2            0.7%           
+Amenity: Wood Floors         $-28             $2            $1            0.4%           
+Amenities not listed         $85              $4            $1            0.4%           
+Amenity: Clubhouse           $-53             $9            $1            0.4%           
+Amenity: Internet Access     $55              $0            $1            0.3%           
+Amenity: Cable or Satellite  $-16             $4            $1            0.4%           
+Amenity: Fireplace           $-13             $3            $0            0.2%           
+Amenity: Tennis              $-55             $3            $0            0.1%           
+Amenity: Garbage Disposal    $11              $1            $0            0.2%           
 
 Linear effects in full
-      +462  inside the Chicago metro rather than elsewhere in Illinois
-      +346  in MN rather than OH
-      +195  one more bathroom
-      +126  in WI rather than OH
-      -122  cats allowed
-      -121  Playground listed, which also adds one to the amenity count
-      -114  in KS rather than OH
-      +104  in MI rather than OH
+      +503  inside the Chicago metro rather than elsewhere in Illinois
+      +342  in MN rather than OH
+      +193  one more bathroom
+      +134  in WI rather than OH
+      -127  cats allowed
+      -119  Playground listed, which also adds one to the amenity count
+      -112  in KS rather than OH
+      +100  in MI rather than OH
        +98  Parking listed, which also adds one to the amenity count
-       +93  Gym listed, which also adds one to the amenity count
-       -93  Refrigerator listed, which also adds one to the amenity count
-       -91  AC listed, which also adds one to the amenity count
-       -86  pet policy not stated
-       +84  no amenity list in the listing
-       +80  one more listed amenity of any kind
-       -74  in IN rather than OH
-       -71  in NE rather than OH
-       -71  in SD rather than OH
-       -65  in IA rather than OH
-       -63  explicitly no pets
-       +62  dogs allowed
-       +59  Internet Access listed, which also adds one to the amenity count
-       -56  Clubhouse listed, which also adds one to the amenity count
-       -54  Tennis listed, which also adds one to the amenity count
+       +91  Gym listed, which also adds one to the amenity count
+       -89  Refrigerator listed, which also adds one to the amenity count
+       -85  AC listed, which also adds one to the amenity count
+       +85  no amenity list in the listing
+       -83  pet policy not stated
+       -81  in SD rather than OH
+       -77  in IN rather than OH
+       +76  one more listed amenity of any kind
+       -70  in NE rather than OH
+       +70  dogs allowed
+       -67  in IA rather than OH
+       -65  explicitly no pets
+       -56  one more bedroom, same square footage
+       -55  Tennis listed, which also adds one to the amenity count
+       +55  Internet Access listed, which also adds one to the amenity count
        +54  10% more square footage
-       -53  one more bedroom, same square footage
-       -38  in ND rather than OH
-       +37  Storage listed, which also adds one to the amenity count
-       +34  Dishwasher listed, which also adds one to the amenity count
-       -24  Wood Floors listed, which also adds one to the amenity count
-       -21  Patio/Deck listed, which also adds one to the amenity count
-       -18  Fireplace listed, which also adds one to the amenity count
-       -15  in MO rather than OH
-       -11  Cable or Satellite listed, which also adds one to the amenity count
-        +8  Garbage Disposal listed, which also adds one to the amenity count
-        +5  Washer Dryer listed, which also adds one to the amenity count
-        +4  Pool listed, which also adds one to the amenity count
+       -53  Clubhouse listed, which also adds one to the amenity count
+       -47  in ND rather than OH
+       +30  Storage listed, which also adds one to the amenity count
+       +29  Dishwasher listed, which also adds one to the amenity count
+       -28  Wood Floors listed, which also adds one to the amenity count
+       -17  in IL rather than OH
+       -16  Cable or Satellite listed, which also adds one to the amenity count
+       -14  Patio/Deck listed, which also adds one to the amenity count
+       -13  Fireplace listed, which also adds one to the amenity count
+       +11  Garbage Disposal listed, which also adds one to the amenity count
+        -9  in MO rather than OH
+        +7  Washer Dryer listed, which also adds one to the amenity count
         -3  10 more miles from campus
-        -1  in IL rather than OH
+        +2  Pool listed, which also adds one to the amenity count
 
 Effect of flagged rows
 ----------------------
-Multiple linear regression on the shared unflagged held-out rows: RMSE $391 trained without flagged rows vs $391 trained with them
-Random forest on the shared unflagged held-out rows: RMSE $301 trained without flagged rows vs $300 trained with them
+Multiple linear regression on the shared unflagged held-out rows: RMSE $419 trained without flagged rows vs $422 trained with them
+Random forest on the shared unflagged held-out rows: RMSE $388 trained without flagged rows vs $385 trained with them
 Best model by cross validation: Random forest without flagged rows, Random forest with them; the conclusion does not change.
 
 Fair rent estimate deployed to the app
@@ -281,5 +281,5 @@ Fair rent estimate deployed to the app
 Model: Random forest, trained excluding flagged rows.
 Interval: 80% prediction interval from out-of-fold residuals, calibrated separately in 5 bands of predicted rent.
 Every Midwest listing gets an out-of-fold estimate, so no listing is scored by a model that saw its own rent.
-Estimates written: 12,166
-Value labels: within 9,774, below 1,208, above 1,184
+Estimates written: 11,977
+Value labels: within 9,663, below 1,165, above 1,149

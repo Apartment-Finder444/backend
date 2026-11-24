@@ -3,7 +3,11 @@ import math
 import sqlite3
 from pathlib import Path
 
+import joblib
+import pandas as pd
 from flask import Flask, jsonify, render_template, request
+
+from src.model import estimate_fair_rent
 
 from src.scoring import (
     COMPONENT_LABELS,
@@ -20,6 +24,8 @@ from src.scoring import (
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "data" / "clean" / "apartments.db"
 DEFAULT_METADATA = ROOT / "models" / "model_metadata.json"
+DEFAULT_MODEL = ROOT / "models" / "random_forest.joblib"
+APP_NAME = "Campus Apartment Finder"
 DATA_YEARS = "2018-2019"
 DEFAULT_LIMIT = 50
 MAX_LIMIT = 500
@@ -154,6 +160,15 @@ def rounded(value, digits=0):
     return int(number) if digits == 0 else number
 
 
+def as_float(value):
+    value = clean_value(value)
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if math.isfinite(number) and number > 0 else None
+
+
 def is_flag_set(value):
     return not is_missing(value) and str(value).strip().casefold() in {"1", "true", "1.0"}
 
@@ -165,12 +180,15 @@ def present_listing(row, preferences):
     label = listing.get("value_label")
     if is_missing(label) or rounded(listing.get("fair_rent")) is None:
         label = "unknown"
+    price = as_float(listing.get("price"))
+    square_feet = as_float(listing.get("square_feet"))
     return {
         "id": rounded(listing.get("id")),
         "price": rounded(listing.get("price")),
         "bedrooms": clean_value(listing.get("bedrooms")),
         "bathrooms": clean_value(listing.get("bathrooms")),
         "square_feet": rounded(listing.get("square_feet")),
+        "price_per_sqft": round(price / square_feet, 2) if price and square_feet else None,
         "cityname": listing.get("cityname"),
         "state": listing.get("state"),
         "latitude": clean_value(listing.get("latitude")),
@@ -211,10 +229,44 @@ def read_metadata(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def create_app(database_path=DEFAULT_DATABASE, metadata_path=DEFAULT_METADATA):
+def estimate_request_frame(arguments):
+    required = {name: parse_number(arguments, name) for name in ("bedrooms", "bathrooms", "square_feet")}
+    missing = [name for name, value in required.items() if value is None]
+    if missing:
+        raise BadRequest(f"Missing required parameters: {', '.join(missing)}")
+    if required["square_feet"] <= 0:
+        raise BadRequest("square_feet must be positive")
+    distance = parse_number(arguments, "distance")
+    pets = arguments.get("pets", "").strip().casefold()
+    pets_value = {"cats": "Cats", "dogs": "Dogs", "cats,dogs": "Cats,Dogs", "none": "none_allowed"}.get(pets)
+    return pd.DataFrame([{
+        "id": 0,
+        "price": parse_number(arguments, "price"),
+        "bedrooms": required["bedrooms"],
+        "bathrooms": required["bathrooms"],
+        "square_feet": required["square_feet"],
+        "cityname": arguments.get("city", "").strip() or None,
+        "state": (arguments.get("state", "IL").strip() or "IL").upper(),
+        "latitude": None,
+        "longitude": None,
+        "distance_from_campus_miles": distance,
+        "amenities": ",".join(parse_amenity_list(arguments.get("amenities")) or []) or None,
+        "pets_allowed": pets_value,
+    }])
+
+
+def create_app(database_path=DEFAULT_DATABASE, metadata_path=DEFAULT_METADATA, model_path=DEFAULT_MODEL):
     application = Flask(__name__)
     application.config["DATABASE_PATH"] = str(database_path)
     application.config["METADATA_PATH"] = str(metadata_path)
+    application.config["MODEL_PATH"] = str(model_path)
+    loaded_models = {}
+
+    def fair_rent_model():
+        path = application.config["MODEL_PATH"]
+        if path not in loaded_models:
+            loaded_models[path] = joblib.load(path) if Path(path).exists() else None
+        return loaded_models[path]
 
     def database_rows(query, values=()):
         with sqlite3.connect(application.config["DATABASE_PATH"]) as connection:
@@ -241,7 +293,7 @@ def create_app(database_path=DEFAULT_DATABASE, metadata_path=DEFAULT_METADATA):
 
     @application.get("/")
     def index():
-        return render_template("index.html", data_years=DATA_YEARS)
+        return render_template("index.html", data_years=DATA_YEARS, app_name=APP_NAME)
 
     @application.get("/api/search")
     def search():
@@ -290,6 +342,28 @@ def create_app(database_path=DEFAULT_DATABASE, metadata_path=DEFAULT_METADATA):
         result = present_listing(filter_pet_results(rows)[0], preferences)
         result["meta"] = response_meta(preferences)
         return jsonify(result)
+
+    @application.get("/api/estimate")
+    def estimate():
+        bundle = fair_rent_model()
+        if bundle is None:
+            return jsonify({"error": "Trained model not found; run python -m src.model"}), 503
+        frame = estimate_request_frame(request.args)
+        if frame.loc[0, "state"] not in bundle["spec"]["states"]:
+            raise BadRequest(f"state must be one of {', '.join(bundle['spec']['states'])}")
+        result = estimate_fair_rent(bundle, frame).iloc[0]
+        price = parse_number(request.args, "price")
+        return jsonify({
+            "fair_rent": rounded(result["fair_rent"]),
+            "fair_rent_low": rounded(result["fair_rent_low"]),
+            "fair_rent_high": rounded(result["fair_rent_high"]),
+            "price": rounded(price),
+            "value_label": result["value_label"] if price is not None else "unknown",
+            "interval_coverage": bundle["interval"]["coverage"],
+            "model": bundle.get("name"),
+            "data_years": DATA_YEARS,
+            "note": "Estimated from 2018-2019 Midwest listings; a historical range, not a current price.",
+        })
 
     @application.get("/api/feature-importance")
     def feature_importance():

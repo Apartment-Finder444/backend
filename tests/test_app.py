@@ -1,9 +1,12 @@
 import json
 import sqlite3
 
+import joblib
 import pytest
 
+from src import model
 from src.app import create_app, filter_pet_results, pet_policy_label
+from tests.test_model import synthetic_listings
 
 
 LISTING_KEYS = {
@@ -43,7 +46,16 @@ def client(tmp_path):
         "importance": [{"feature": "Square footage", "forest_permutation_dollars": 180.0, "linear_dollars": 54.0, "linear_change": "10% more square footage"}],
         "linear_effects": [{"feature": "bathrooms", "change": "one more bathroom", "dollars": 195.0, "coefficient": 0.2}],
     }))
-    return create_app(database, metadata).test_client()
+    train = model.prepare_frame(synthetic_listings(300, 9))
+    skew = model.skew_report(train)
+    spec = model.build_spec(train, skew)
+    forest = model.fit_model("forest", train, spec)
+    predicted = model.predict_target(forest, train, spec)
+    residuals = model.target_values(train, spec).to_numpy() - predicted
+    bundle = {"kind": "forest", "name": "Random forest", "model": forest, "spec": spec, "interval": model.interval_quantiles(residuals * 3, predicted)}
+    model_file = tmp_path / "random_forest.joblib"
+    joblib.dump(bundle, model_file)
+    return create_app(database, metadata, model_file).test_client()
 
 
 def test_pets_filter_keeps_unknown_below_confirmed():
@@ -149,3 +161,30 @@ def test_options_and_index(client):
     page = client.get("/")
     assert page.status_code == 200
     assert b"2018 and 2019" in page.data
+
+
+def test_estimate_endpoint_uses_saved_model(client):
+    response = client.get("/api/estimate?bedrooms=1&bathrooms=1&square_feet=750&state=IL&city=Chicago&price=99999")
+    assert response.status_code == 200
+    payload = response.get_json()
+    assert payload["fair_rent_low"] < payload["fair_rent"] < payload["fair_rent_high"]
+    assert payload["value_label"] == "above"
+    assert payload["model"] == "Random forest"
+    without_price = client.get("/api/estimate?bedrooms=1&bathrooms=1&square_feet=750&state=IL").get_json()
+    assert without_price["value_label"] == "unknown"
+    assert without_price["price"] is None
+
+
+def test_estimate_endpoint_validates_input(client):
+    assert client.get("/api/estimate?bedrooms=1&bathrooms=1").status_code == 400
+    assert client.get("/api/estimate?bedrooms=1&bathrooms=1&square_feet=700&state=TX").status_code == 400
+
+
+def test_estimate_endpoint_without_model(tmp_path):
+    application = create_app(tmp_path / "missing.db", tmp_path / "missing.json", tmp_path / "missing.joblib")
+    assert application.test_client().get("/api/estimate?bedrooms=1&bathrooms=1&square_feet=700").status_code == 503
+
+
+def test_listing_has_price_per_sqft(client):
+    payload = client.get("/api/listing/1").get_json()
+    assert payload["price_per_sqft"] == pytest.approx(1500 / 700, abs=0.01)

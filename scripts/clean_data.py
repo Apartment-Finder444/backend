@@ -44,6 +44,10 @@ PRICE_BOUNDS = {
     3: (500, 25_000),
     4: (600, 30_000),
 }
+PRICE_FLOOR = 200
+PRICE_CEILING = 20_000
+WEEKS_PER_MONTH = 52 / 12
+UNIT_COLUMNS = ["price", "bedrooms", "bathrooms", "square_feet", "latitude", "longitude"]
 SIZE_BOUNDS = {
     0: (120, 3_000),
     1: (180, 4_000),
@@ -101,6 +105,19 @@ def body_price_contradicts(price, body):
     return False
 
 
+def monthly_prices(frame):
+    prices = pd.to_numeric(frame["price"], errors="coerce")
+    weekly = frame["price_type"].astype("string").str.strip().str.casefold().eq("weekly").fillna(False)
+    return prices.where(~weekly, prices * WEEKS_PER_MONTH), weekly
+
+
+def repost_duplicates(frame):
+    unit_complete = frame[UNIT_COLUMNS].notna().all(axis=1)
+    same_title = frame.duplicated(UNIT_COLUMNS + ["title"], keep="first")
+    same_body = frame.duplicated(UNIT_COLUMNS + ["body"], keep="first")
+    return unit_complete & (same_title | same_body)
+
+
 def mark_rejections(frame):
     rejected_reason = pd.Series(pd.NA, index=frame.index, dtype="string")
 
@@ -109,15 +126,17 @@ def mark_rejections(frame):
         rejected_reason.loc[active & mask.fillna(False)] = reason
 
     mark(frame.duplicated(keep="first"), "exact_duplicate")
-    price_type = frame["price_type"].astype("string").str.casefold()
-    mark(price_type.str.contains(r"week|weekly", na=False), "weekly_price")
-    prices = pd.to_numeric(frame["price"], errors="coerce")
+    mark(repost_duplicates(frame), "repost_duplicate")
+    price_type = frame["price_type"].astype("string").str.strip().str.casefold()
+    mark(price_type.notna() & ~price_type.isin(["monthly", "weekly"]), "ambiguous_price_period")
+    prices, _ = monthly_prices(frame)
     mark(prices.isna(), "missing_price")
     contradicted = pd.Series(
-        [body_price_contradicts(price, body) for price, body in zip(prices, frame["body"])],
+        [body_price_contradicts(price, body) for price, body in zip(pd.to_numeric(frame["price"], errors="coerce"), frame["body"])],
         index=frame.index,
     )
     mark(contradicted, "body_price_contradiction")
+    mark(prices.lt(PRICE_FLOOR) | prices.gt(PRICE_CEILING), "implausible_price")
     return rejected_reason
 
 
@@ -133,6 +152,10 @@ def clean_data(frame):
     rejected["reject_reason"] = rejection_reasons.loc[rejection_reasons.notna()]
     kept = frame.loc[rejection_reasons.isna()].copy()
 
+    monthly, weekly = monthly_prices(kept)
+    kept["price"] = monthly.round(0)
+    kept["price_converted_from_weekly"] = weekly.astype(bool)
+    kept.loc[weekly, "price_type"] = "Monthly"
     for column in ("price", "bedrooms", "bathrooms", "square_feet", "latitude", "longitude", "id"):
         numeric_column(kept, column)
 

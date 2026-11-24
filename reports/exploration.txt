@@ -2,43 +2,44 @@ Campus: 41.7959, -88.0855
 Usable rows require positive price and complete price, bedrooms, bathrooms, square_feet, latitude, longitude.
 
 Scope counts:
-Chicago metro: including flagged 730; excluding flagged 664
-All of Illinois: including flagged 1,029; excluding flagged 956
-Midwest: including flagged 12,166; excluding flagged 11,698
-National: including flagged 97,865; excluding flagged 95,148
+Chicago metro: including flagged 721; excluding flagged 655
+All of Illinois: including flagged 1,018; excluding flagged 945
+Midwest: including flagged 11,977; excluding flagged 11,511
+National: including flagged 96,537; excluding flagged 93,841
 
 Missing data by column:
-address: 91.92%
-pets_allowed: 55.66%
-amenities: 16.00%
+address: 91.83%
+pets_allowed: 55.45%
+amenities: 16.03%
 cityname: 0.31%
-latitude: 0.25%
 longitude: 0.25%
+latitude: 0.25%
 bedrooms: 0.12%
 bathrooms: 0.06%
+body: 0.00%
 title: 0.00%
-id: 0.00%
 category: 0.00%
+id: 0.00%
+price: 0.00%
 has_photo: 0.00%
 fee: 0.00%
 currency: 0.00%
-body: 0.00%
 square_feet: 0.00%
 price_type: 0.00%
 price_display: 0.00%
-price: 0.00%
 state: 0.00%
 source: 0.00%
 time: 0.00%
+price_converted_from_weekly: 0.00%
 flag_placeholder_coords: 0.00%
 flag_coord_mismatch: 0.00%
 flag_bedroom_conflict: 0.00%
 flag_suspect_price: 0.00%
 flag_suspect_size: 0.00%
-Rows lost by filtering on pets_allowed: 54,709 (55.66%)
-Rows lost by filtering on amenities: 15,726 (16.00%)
+Rows lost by filtering on pets_allowed: 53,763 (55.45%)
+Rows lost by filtering on amenities: 15,546 (16.03%)
 
-Rows with campus distance: 98,043
-Median campus distance: 769.50 miles
-Distinct coordinate pairs: 7,364 across 98,043 rows
+Rows with campus distance: 96,714
+Median campus distance: 769.51 miles
+Distinct coordinate pairs: 7,363 across 96,714 rows
 Nearest distinct coordinate spacing: median 2.15 miles, mean 4.25 miles

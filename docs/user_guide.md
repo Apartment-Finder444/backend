@@ -1,4 +1,4 @@
-# Using Campus Rent Finder
+# Using Campus Apartment Finder
 
 ## Before you start: these are old listings
 
@@ -15,7 +15,7 @@ You set preferences such as a budget, bedrooms, bathrooms, minimum size, distanc
 | Rent | Full marks up to 85% of your budget, then a gentle decline to your budget. A sharp drop just above it, reaching zero at 10% over. |
 | Bedrooms and bathrooms | Full marks for an exact match, half marks if one off, zero beyond that |
 | Square footage | Full marks at or above your minimum, falling to zero at 70% of it |
-| Distance from campus | Scored in bands: about 3, 7, 15, 30 and 60 miles. It is not exact, because listing locations mark areas about a mile and a half across rather than buildings. |
+| Distance from campus | Scored in bands: about 3, 7, 15, 30 and 60 miles. It is not exact, because listing locations mark areas about 2 miles across rather than buildings. |
 | Amenities | The share of the amenities you asked for that the listing confirms |
 | Cost per bedroom | Rent divided by bedrooms, with a studio counted as one, scored against your per-person budget the same way as rent |
 

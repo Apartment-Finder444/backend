@@ -9,3 +9,4 @@ nbformat
 nbclient
 ipykernel
 py7zr
+seaborn
